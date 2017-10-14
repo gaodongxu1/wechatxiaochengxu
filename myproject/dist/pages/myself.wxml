@@ -1,0 +1,7 @@
+
+<view>
+<view class="love">
+<image class="heart" src="{{love}}"/>
+<text>喜欢</text>
+</view>
+</view>

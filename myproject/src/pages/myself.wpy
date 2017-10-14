@@ -1,0 +1,40 @@
+<style lang='less'>
+.heart {
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+.love {
+  font-size: 15px;
+  color: red;
+  display: flex;
+  flex-direction: column;
+}
+</style>
+<template>
+<view>
+<view class="love">
+<image class="heart" src="{{love}}"></image>
+<text>喜欢</text>
+</view>
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '我的'
+  }
+  data = {
+    love: '../photo/love.png'
+  }
+  methods = {
+  }
+  onLoad() {
+
+  }
+}
+</script>

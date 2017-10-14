@@ -1,5 +1,5 @@
 
-  <view>
+  <view class="background">
     <view class="border input">
       <input placeholder="点击搜索" auto-focus/>
     </view>
@@ -52,53 +52,147 @@
     </view>
     <view class="topic">
       <view class="topic-o">
-      <text bindtap="want" style="color:{{colorwant}}">我要选车</text>
+        <text bindtap="want" style="color:{{colorwant}}">我要买车</text>
       </view>
       <view class="topic-o">
-      <text bindtap="tryon" style="color:{{colortryon}}"> 免费试驾</text>
+        <text bindtap="tryon" style="color:{{colortryon}}"> 免费试驾</text>
       </view>
     </view>
     <view class="car-layout">
-    <view class="picture-layout">
-    <view>
-      <text>今年推荐</text>
-      <text class="Mazda-atz">Mazda atz</text>
-    </view>
-    <view>
-      <image class="car-picture" src="{{Mazda}}"/>
-    </view>
-    </view>
-    <view class="picture-layout">
-    <view>
-      <text>有逼格</text>
-      <text class="Mazda-atz">Coupe</text>
-    </view>
-    <view>
-      <image class="car-picture" src="{{Coupe}}"/>
-    </view>
-    </view>
+      <view class="picture-layout">
+        <view>
+          <text>今年推荐</text>
+          <text class="Mazda-atz">Mazda atz</text>
+        </view>
+        <view>
+          <image class="car-picture" src="{{Mazda}}"/>
+        </view>
+      </view>
+      <view class="picture-layout">
+        <view>
+          <text>有逼格</text>
+          <text class="Mazda-atz">Coupe</text>
+        </view>
+        <view>
+          <image class="car-picture" src="{{Coupe}}"/>
+        </view>
+      </view>
     </view>
     <view class="car-layout">
-    <view class="picture-layout">
-    <view>
-      <text>最受欢迎</text>
-      <text class="Mazda-atz">Passat</text>
+      <view class="picture-layout">
+        <view>
+          <text>最受欢迎</text>
+          <text class="Mazda-atz">Passat</text>
+        </view>
+        <view>
+          <image class="car-picture" src="{{Passat}}"/>
+        </view>
+      </view>
+      <view class="picture-layout">
+        <view>
+          <text>猜你喜欢</text>
+          <text class="Mazda-atz">BMW Z4</text>
+        </view>
+        <view>
+          <image class="car-picture" src="{{bmwz4}}"/>
+        </view>
+      </view>
     </view>
-    <view>
-      <image class="car-picture" src="{{Passat}}"/>
+    <view class="line-recommed">
+      <text class="line"/>
+      <text class="">家用轿车推荐</text>
+      <text class="line"/>
     </view>
-    </view>
-    <view class="picture-layout">
-    <view>
-      <text>猜你喜欢</text>
-      <text class="Mazda-atz">BMW Z4</text>
-    </view>
-    <view>
-      <image class="car-picture" src="{{bmwz4}}"/>
-    </view>
-    </view>
-    </view>
-    <view>
-      <text class="recommend">家用轿车推荐</text>
-    </view>
+    <view class="introduce-grade">
+      <view class="lastlayout">
+        <image class="car-picture" src="{{Q3}}"/>
+      </view>
+      <view>
+        <view class="introduce">
+            <text>级别:</text>
+            <text class="grade">SUV</text>
+        </view>
+        <view class="introduce">
+            <text>排量:</text>
+            <text class="grade">1.4T 2.0T</text>
+        </view>
+        <view class="introduce">
+            <text>驱动方式:</text>
+            <text class="grade">前轮驱动</text>
+        </view>
+        <view class="introduce">
+            <text>变速箱:</text>
+            <text class="grade">手动双离合</text>
+          </view>
+        </view>
+      </view>
+      <view class="introduce-grade">
+      <view class="lastlayout">
+        <image class="car-picture" src="{{corolla}}"/>
+      </view>
+      <view>
+        <view class="introduce">
+            <text>级别:</text>
+            <text class="grade">轿车</text>
+        </view>
+        <view class="introduce">
+            <text>排量:</text>
+            <text class="grade">1.2T</text>
+        </view>
+        <view class="introduce">
+            <text>驱动方式:</text>
+            <text class="grade">前轮驱动</text>
+        </view>
+        <view class="introduce">
+            <text>变速箱:</text>
+            <text class="grade">手自一体</text>
+          </view>
+        </view>
+      </view>
+      <view class="introduce-grade">
+      <view class="lastlayout">
+        <image class="car-picture" src="{{songchart}}"/>
+      </view>
+      <view>
+        <view class="introduce">
+            <text>级别:</text>
+            <text class="grade">轿跑+SUV</text>
+        </view>
+        <view class="introduce">
+            <text>排量:</text>
+            <text class="grade">3.0T</text>
+        </view>
+        <view class="introduce">
+            <text>驱动方式:</text>
+            <text class="grade">适时四驱</text>
+        </view>
+        <view class="introduce">
+            <text>变速箱:</text>
+            <text class="grade">手自一体</text>
+          </view>
+        </view>
+      </view>
+      <view class="introduce-grade">
+      <view class="lastlayout">
+        <image class="car-picture" src="{{BYDF6}}"/>
+      </view>
+      <view>
+        <view class="introduce">
+            <text>级别:</text>
+            <text class="grade">轿车</text>
+        </view>
+        <view class="introduce">
+            <text>排量:</text>
+            <text class="grade">1.8T</text>
+        </view>
+        <view class="introduce">
+            <text>驱动方式:</text>
+            <text class="grade">前置前驱</text>
+        </view>
+        <view class="introduce">
+            <text>变速箱:</text>
+            <text class="grade">5挡手动</text>
+          </view>
+        </view>
+      </view>
   </view>

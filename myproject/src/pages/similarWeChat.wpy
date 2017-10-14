@@ -1,20 +1,30 @@
 <style lang='less'>
+.background {
+  // margin: 1px 5px;
+  // height: 80px;
+  // width: 80px;
+  // margin: 3px 8px 5px 10px;
+  background-color: greenyellow;
+}
 .input {
   display: flex;
   margin: 10px 2px 3px 5px;
 }
+
 .backgroundcar {
   display: flex;
   justify-content: center;
 }
+
 .border {
   display: flex;
-  border:2px solid grey;
-	padding:3px 30px; 
-	background:white;
-	width:300px;
-	border-radius:18px;
+  border: 2px solid grey;
+  padding: 3px 30px;
+  background: white;
+  width: 300px;
+  border-radius: 18px;
 }
+
 .car-icon {
   width: 36px;
   height: 36px;
@@ -27,8 +37,8 @@
   margin: 13px 8px 1px 6px;
   font-size: 13px;
   color: black;
-  
 }
+
 .caricon-size {
   display: flex;
   border-radius: 50%;
@@ -36,50 +46,96 @@
   width: 36px;
   height: 36px;
 }
+
 .name-icon {
   display: flex;
   justify-content: center;
   margin: 20px 10px;
 }
+
 .nameicon-column {
   display: flex;
   flex-direction: column;
 }
- .topic {
-     display: flex;
-     justify-content: center;
-     margin: 20px 10px;
- }
- .topic-o {
-      display: flex;
-      font-size: 20px;
-      margin: 20px 20px 20px 0px; 
-      color: black;
- }
- .car-picture {
-   width: 170px;
-   height: 110px;
- }
- .car-layout {
-   display: flex;
-   justify-content: center;
-   margin: 5px 3px 5px 3px;
- }
- .picture-layout {
-   margin: 0px 3px 20px 6px;
- }
- .Mazda-atz {
-   color: red;
-   font-size: 15px;
- }
+
+.topic {
+  display: flex;
+  justify-content: center;
+  margin: 20px 10px;
+}
+
+.topic-o {
+  display: flex;
+  font-size: 20px;
+  margin: 20px 20px 20px 0px;
+  color: black;
+}
+
+.car-picture {
+  width: 170px;
+  height: 110px;
+}
+
+.car-layout {
+  display: flex;
+  justify-content: center;
+  margin: 5px 3px 5px 3px;
+}
+
+.picture-layout {
+  margin: 0px 3px 20px 6px;
+}
+
+.Mazda-atz {
+  color: red;
+  font-size: 15px;
+}
+
 .recommend {
   color: black;
-  display:flex;
+  display: flex;
   justify-content: center;
+}
+
+.line {
+  height: 2px;
+  width: 113px;
+  background-color: black;
+  margin: 0px 5px 0px 5px;
+}
+
+.line-recommed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.introduce {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8rem;
+}
+.grade {
+  font-size: 0.9rem;
+  color: red;
+  margin: 0rem 0rem 0.6rem 0.625rem;
+}
+.introduce-grade {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px 4px 20px 4px;
+}
+.lastlayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lastlayout{
+   margin: 0px 30px 2px 1px;
 }
 </style>
 <template>
-  <view >
+  <view class="background">
     <view class="border input">
       <input placeholder="点击搜索" auto-focus/>
     </view>
@@ -100,25 +156,25 @@
         <text @tap="car-name" class="car-name">丰田</text>
       </view>
       <view nameicon-column>
-        <view >
+        <view>
           <image @tap="car-icon" class="caricon-size" src="{{dasauto}}"></image>
         </view>
         <text @tap="car-name" class="car-name">大众</text>
       </view>
       <view nameicon-column>
-        <view >
+        <view>
           <image @tap="car-icon" class="caricon-size" src="{{honda}}"></image>
         </view>
         <text @tap="car-name" class="car-name">本田</text>
       </view>
       <view nameicon-column>
-        <view >
+        <view>
           <image @tap="car-icon" class="caricon-size" src="{{bmw}}"></image>
         </view>
         <text @tap="car-name" class="car-name">宝马</text>
       </view>
       <view nameicon-column>
-        <view >
+        <view>
           <image @tap="car-icon" class="caricon-size" src="{{kia}}"></image>
         </view>
         <text @tap="car-name" class="car-name">起亚</text>
@@ -132,55 +188,149 @@
     </view>
     <view class="topic">
       <view class="topic-o">
-      <text @tap="want" style="color:{{colorwant}}">我要选车</text>
+        <text @tap="want" style="color:{{colorwant}}">我要买车</text>
       </view>
       <view class="topic-o">
-      <text @tap="tryon" style="color:{{colortryon}}"> 免费试驾</text>
+        <text @tap="tryon" style="color:{{colortryon}}"> 免费试驾</text>
       </view>
     </view>
     <view class="car-layout">
-    <view class="picture-layout">
-    <view>
-      <text>今年推荐</text>
-      <text class="Mazda-atz">Mazda atz</text>
-    </view>
-    <view>
-      <image class="car-picture" src="{{Mazda}}"></image>
-    </view>
-    </view>
-    <view class="picture-layout">
-    <view>
-      <text>有逼格</text>
-      <text class="Mazda-atz">Coupe</text>
-    </view>
-    <view>
-      <image class="car-picture" src="{{Coupe}}"></image>
-    </view>
-    </view>
+      <view class="picture-layout">
+        <view>
+          <text>今年推荐</text>
+          <text class="Mazda-atz">Mazda atz</text>
+        </view>
+        <view>
+          <image class="car-picture" src="{{Mazda}}"></image>
+        </view>
+      </view>
+      <view class="picture-layout">
+        <view>
+          <text>有逼格</text>
+          <text class="Mazda-atz">Coupe</text>
+        </view>
+        <view>
+          <image class="car-picture" src="{{Coupe}}"></image>
+        </view>
+      </view>
     </view>
     <view class="car-layout">
-    <view class="picture-layout">
-    <view>
-      <text>最受欢迎</text>
-      <text class="Mazda-atz">Passat</text>
+      <view class="picture-layout">
+        <view>
+          <text>最受欢迎</text>
+          <text class="Mazda-atz">Passat</text>
+        </view>
+        <view>
+          <image class="car-picture" src="{{Passat}}"></image>
+        </view>
+      </view>
+      <view class="picture-layout">
+        <view>
+          <text>猜你喜欢</text>
+          <text class="Mazda-atz">BMW Z4</text>
+        </view>
+        <view>
+          <image class="car-picture" src="{{bmwz4}}"></image>
+        </view>
+      </view>
     </view>
-    <view>
-      <image class="car-picture" src="{{Passat}}"></image>
+    <view class="line-recommed">
+      <text class="line"></text>
+      <text class="">家用轿车推荐</text>
+      <text class="line"></text>
     </view>
-    </view>
-    <view class="picture-layout">
-    <view>
-      <text>猜你喜欢</text>
-      <text class="Mazda-atz">BMW Z4</text>
-    </view>
-    <view>
-      <image class="car-picture" src="{{bmwz4}}"></image>
-    </view>
-    </view>
-    </view>
-    <view>
-      <text class="recommend">家用轿车推荐</text>
-    </view>
+    <view class="introduce-grade">
+      <view class="lastlayout">
+        <image class="car-picture" src="{{Q3}}"></image>
+      </view>
+      <view >
+        <view class="introduce">
+            <text>级别:</text>
+            <text class="grade">SUV</text>
+        </view>
+        <view class="introduce">
+            <text>排量:</text>
+            <text class="grade">1.4T 2.0T</text>
+        </view>
+        <view class="introduce">
+            <text>驱动方式:</text>
+            <text class="grade">前轮驱动</text>
+        </view>
+        <view class="introduce">
+            <text>变速箱:</text>
+            <text class="grade">手动双离合</text>
+          </view>
+        </view>
+      </view>
+      <view class="introduce-grade">
+      <view class="lastlayout">
+        <image class="car-picture" src="{{corolla}}"></image>
+      </view>
+      <view>
+        <view class="introduce">
+            <text>级别:</text>
+            <text class="grade">轿车</text>
+        </view>
+        <view class="introduce">
+            <text>排量:</text>
+            <text class="grade">1.2T</text>
+        </view>
+        <view class="introduce">
+            <text>驱动方式:</text>
+            <text class="grade">前轮驱动</text>
+        </view>
+        <view class="introduce">
+            <text>变速箱:</text>
+            <text class="grade">手自一体</text>
+          </view>
+        </view>
+      </view>
+      <view class="introduce-grade">
+      <view class="lastlayout">
+        <image class="car-picture" src="{{songchart}}"></image>
+      </view>
+      <view>
+        <view class="introduce">
+            <text>级别:</text>
+            <text class="grade">轿跑+SUV</text>
+        </view>
+        <view class="introduce">
+            <text>排量:</text>
+            <text class="grade">3.0T</text>
+        </view>
+        <view class="introduce">
+            <text>驱动方式:</text>
+            <text class="grade">适时四驱</text>
+        </view>
+        <view class="introduce">
+            <text>变速箱:</text>
+            <text class="grade">手自一体</text>
+          </view>
+        </view>
+      </view>
+      <view class="introduce-grade">
+      <view class="lastlayout">
+        <image class="car-picture" src="{{BYDF6}}"></image>
+      </view>
+      <view>
+        <view class="introduce">
+            <text>级别:</text>
+            <text class="grade">轿车</text>
+        </view>
+        <view class="introduce">
+            <text>排量:</text>
+            <text class="grade">1.8T</text>
+        </view>
+        <view class="introduce">
+            <text>驱动方式:</text>
+            <text class="grade">前置前驱</text>
+        </view>
+        <view class="introduce">
+            <text>变速箱:</text>
+            <text class="grade">5挡手动</text>
+          </view>
+        </view>
+      </view>
   </view>
 </template>
 <script>
@@ -205,6 +355,10 @@ export default class Index extends wepy.page {
     Shopping: '../photo/Shopping.png',
     ask: '../photo/ask.png',
     more: '../photo/more.png',
+    Q3: '../photo/Q3.jpg',
+    BYDF6: '../photo/BYDF6.jpg',
+    songchart: '../photo/songchart.jpg',
+    corolla: '../photo/corolla.jpg',
     cars: [
       '../photo/maserati.jpg',
       '../photo/ferrari.jpg',
