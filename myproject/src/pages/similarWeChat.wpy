@@ -1,0 +1,247 @@
+<style lang='less'>
+.input {
+  display: flex;
+  margin: 10px 2px 3px 5px;
+}
+.backgroundcar {
+  display: flex;
+  justify-content: center;
+}
+.border {
+  display: flex;
+  border:2px solid grey;
+	padding:3px 30px; 
+	background:white;
+	width:300px;
+	border-radius:18px;
+}
+.car-icon {
+  width: 36px;
+  height: 36px;
+  background-color: grey;
+  margin: 12px 3px 2px 5px;
+}
+
+.car-name {
+  display: flex;
+  margin: 13px 8px 1px 6px;
+  font-size: 13px;
+  color: black;
+  
+}
+.caricon-size {
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+}
+.name-icon {
+  display: flex;
+  justify-content: center;
+  margin: 20px 10px;
+}
+.nameicon-column {
+  display: flex;
+  flex-direction: column;
+}
+ .topic {
+     display: flex;
+     justify-content: center;
+     margin: 20px 10px;
+ }
+ .topic-o {
+      display: flex;
+      font-size: 20px;
+      margin: 20px 20px 20px 0px; 
+      color: black;
+ }
+ .car-picture {
+   width: 170px;
+   height: 110px;
+ }
+ .car-layout {
+   display: flex;
+   justify-content: center;
+   margin: 5px 3px 5px 3px;
+ }
+ .picture-layout {
+   margin: 0px 3px 20px 6px;
+ }
+ .Mazda-atz {
+   color: red;
+   font-size: 15px;
+ }
+.recommend {
+  color: black;
+  display:flex;
+  justify-content: center;
+}
+</style>
+<template>
+  <view >
+    <view class="border input">
+      <input placeholder="点击搜索" auto-focus/>
+    </view>
+    <view class="backgroundcar">
+      <swiper style="width: 340px; height: 205px;" indicator-dots="true" autoplay="true" interval="3200" duration="500">
+        <block wx:for="{{cars}}" wx:key="index">
+          <swiper-item>
+            <image src="{{item}}" style="width: 340px; height: 195px"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="name-icon">
+      <view nameicon-column>
+        <view>
+          <image @tap="car-icon" class="caricon-size" src="{{toyota}}"></image>
+        </view>
+        <text @tap="car-name" class="car-name">丰田</text>
+      </view>
+      <view nameicon-column>
+        <view >
+          <image @tap="car-icon" class="caricon-size" src="{{dasauto}}"></image>
+        </view>
+        <text @tap="car-name" class="car-name">大众</text>
+      </view>
+      <view nameicon-column>
+        <view >
+          <image @tap="car-icon" class="caricon-size" src="{{honda}}"></image>
+        </view>
+        <text @tap="car-name" class="car-name">本田</text>
+      </view>
+      <view nameicon-column>
+        <view >
+          <image @tap="car-icon" class="caricon-size" src="{{bmw}}"></image>
+        </view>
+        <text @tap="car-name" class="car-name">宝马</text>
+      </view>
+      <view nameicon-column>
+        <view >
+          <image @tap="car-icon" class="caricon-size" src="{{kia}}"></image>
+        </view>
+        <text @tap="car-name" class="car-name">起亚</text>
+      </view>
+      <view nameicon-column>
+        <view>
+          <image @tap="car-icon" class="caricon-size" src="{{benz}}"></image>
+        </view>
+        <text @tap="car-name" class="car-name">奔驰</text>
+      </view>
+    </view>
+    <view class="topic">
+      <view class="topic-o">
+      <text @tap="want" style="color:{{colorwant}}">我要选车</text>
+      </view>
+      <view class="topic-o">
+      <text @tap="tryon" style="color:{{colortryon}}"> 免费试驾</text>
+      </view>
+    </view>
+    <view class="car-layout">
+    <view class="picture-layout">
+    <view>
+      <text>今年推荐</text>
+      <text class="Mazda-atz">Mazda atz</text>
+    </view>
+    <view>
+      <image class="car-picture" src="{{Mazda}}"></image>
+    </view>
+    </view>
+    <view class="picture-layout">
+    <view>
+      <text>有逼格</text>
+      <text class="Mazda-atz">Coupe</text>
+    </view>
+    <view>
+      <image class="car-picture" src="{{Coupe}}"></image>
+    </view>
+    </view>
+    </view>
+    <view class="car-layout">
+    <view class="picture-layout">
+    <view>
+      <text>最受欢迎</text>
+      <text class="Mazda-atz">Passat</text>
+    </view>
+    <view>
+      <image class="car-picture" src="{{Passat}}"></image>
+    </view>
+    </view>
+    <view class="picture-layout">
+    <view>
+      <text>猜你喜欢</text>
+      <text class="Mazda-atz">BMW Z4</text>
+    </view>
+    <view>
+      <image class="car-picture" src="{{bmwz4}}"></image>
+    </view>
+    </view>
+    </view>
+    <view>
+      <text class="recommend">家用轿车推荐</text>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '爱车族'
+  }
+  data = {
+    dasauto: '../photo/大众.jpg',
+    toyota: '../photo/丰田.jpg',
+    honda: '../photo/本田.jpg',
+    bmw: '../photo/宝马.jpg',
+    kia: '../photo/起亚.jpg',
+    benz: '../photo/奔驰.jpg',
+    Mazda: '../photo/Mazda.jpg',
+    Passat: '../photo/Passat.jpg',
+    bmwz4: '../photo/z4.jpg',
+    Coupe: '../photo/Coupe.jpg',
+    homepage: '../photo/homepage.png',
+    I: '../photo/I.png',
+    Shopping: '../photo/Shopping.png',
+    ask: '../photo/ask.png',
+    more: '../photo/more.png',
+    cars: [
+      '../photo/maserati.jpg',
+      '../photo/ferrari.jpg',
+      '../photo/R8.jpg'
+    ],
+    colorwant: 'black',
+    colortryon: 'green'
+  }
+  methods = {
+    changeIndicatorDots: function(e) {
+      this.setData({
+        indicatorDots: !this.data.indicatorDots
+      })
+    },
+    changeAutoplay: function(e) {
+      this.setData({
+        autoplay: !this.data.autoplay
+      })
+    },
+    intervalChange: function(e) {
+      this.setData({
+        interval: e.detail.value
+      })
+    },
+    want() {
+      let self = this
+      self.colorwant = 'green'
+      self.colortryon = 'balck'
+    },
+    tryon() {
+      let self = this
+      self.colorwant = 'black'
+      self.colortryon = 'green'
+    }
+  }
+  onLoad() {
+
+  }
+}
+</script>

@@ -1,0 +1,99 @@
+<style lang="less">
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+</style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/similarWeChat',
+      'pages/index'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      list: [{
+        pagePath: 'pages/similarWeChat',
+        iconPath: './photo/homepage.png',
+        selectedIconPath: './photo/homepage.png',
+        color: '#000000',
+        selectedColor: '#7cfc00',
+        text: '首页'
+      }, {
+        pagePath: 'pages/index',
+        iconPath: './photo/I.png',
+        selectedIconPath: './photo/I.png',
+        text: '个人中心'
+      }, {
+        pagePath: 'pages/index',
+        iconPath: './photo/Shopping.png',
+        selectedIconPath: './photo/Shopping.png',
+        text: '购物车'
+      }, {
+        pagePath: 'pages/index',
+        iconPath: './photo/ask.png',
+        selectedIconPath: './photo/ask.png',
+        text: '咨询'
+      }, {
+        pagePath: 'pages/index',
+        iconPath: './photo/more.png',
+        selectedIconPath: './photo/more.png',
+        text: '更多'
+      }]
+    }
+  }
+
+  globalData = {
+    userInfo: null
+  }
+
+  constructor () {
+    super()
+    this.use('requestfix')
+  }
+
+  onLaunch() {
+    this.testAsync()
+  }
+
+  sleep (s) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('promise resolved')
+      }, s * 1000)
+    })
+  }
+
+  async testAsync () {
+    const data = await this.sleep(3)
+    console.log(data)
+  }
+
+  getUserInfo(cb) {
+    const that = this
+    if (this.globalData.userInfo) {
+      return this.globalData.userInfo
+    }
+    wepy.getUserInfo({
+      success (res) {
+        that.globalData.userInfo = res.userInfo
+        cb && cb(res.userInfo)
+      }
+    })
+  }
+}
+</script>

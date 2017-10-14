@@ -1,0 +1,104 @@
+
+  <view>
+    <view class="border input">
+      <input placeholder="点击搜索" auto-focus/>
+    </view>
+    <view class="backgroundcar">
+      <swiper style="width: 340px; height: 205px;" indicator-dots="true" autoplay="true" interval="3200" duration="500">
+        <block  wx:for="{{cars}}" wx:key="index">
+          <swiper-item>
+            <image src="{{item}}" style="width: 340px; height: 195px"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="name-icon">
+      <view nameicon-column="nameicon-column">
+        <view>
+          <image bindtap="car-icon" class="caricon-size" src="{{toyota}}"/>
+        </view>
+        <text bindtap="car-name" class="car-name">丰田</text>
+      </view>
+      <view nameicon-column="nameicon-column">
+        <view>
+          <image bindtap="car-icon" class="caricon-size" src="{{dasauto}}"/>
+        </view>
+        <text bindtap="car-name" class="car-name">大众</text>
+      </view>
+      <view nameicon-column="nameicon-column">
+        <view>
+          <image bindtap="car-icon" class="caricon-size" src="{{honda}}"/>
+        </view>
+        <text bindtap="car-name" class="car-name">本田</text>
+      </view>
+      <view nameicon-column="nameicon-column">
+        <view>
+          <image bindtap="car-icon" class="caricon-size" src="{{bmw}}"/>
+        </view>
+        <text bindtap="car-name" class="car-name">宝马</text>
+      </view>
+      <view nameicon-column="nameicon-column">
+        <view>
+          <image bindtap="car-icon" class="caricon-size" src="{{kia}}"/>
+        </view>
+        <text bindtap="car-name" class="car-name">起亚</text>
+      </view>
+      <view nameicon-column="nameicon-column">
+        <view>
+          <image bindtap="car-icon" class="caricon-size" src="{{benz}}"/>
+        </view>
+        <text bindtap="car-name" class="car-name">奔驰</text>
+      </view>
+    </view>
+    <view class="topic">
+      <view class="topic-o">
+      <text bindtap="want" style="color:{{colorwant}}">我要选车</text>
+      </view>
+      <view class="topic-o">
+      <text bindtap="tryon" style="color:{{colortryon}}"> 免费试驾</text>
+      </view>
+    </view>
+    <view class="car-layout">
+    <view class="picture-layout">
+    <view>
+      <text>今年推荐</text>
+      <text class="Mazda-atz">Mazda atz</text>
+    </view>
+    <view>
+      <image class="car-picture" src="{{Mazda}}"/>
+    </view>
+    </view>
+    <view class="picture-layout">
+    <view>
+      <text>有逼格</text>
+      <text class="Mazda-atz">Coupe</text>
+    </view>
+    <view>
+      <image class="car-picture" src="{{Coupe}}"/>
+    </view>
+    </view>
+    </view>
+    <view class="car-layout">
+    <view class="picture-layout">
+    <view>
+      <text>最受欢迎</text>
+      <text class="Mazda-atz">Passat</text>
+    </view>
+    <view>
+      <image class="car-picture" src="{{Passat}}"/>
+    </view>
+    </view>
+    <view class="picture-layout">
+    <view>
+      <text>猜你喜欢</text>
+      <text class="Mazda-atz">BMW Z4</text>
+    </view>
+    <view>
+      <image class="car-picture" src="{{bmwz4}}"/>
+    </view>
+    </view>
+    </view>
+    <view>
+      <text class="recommend">家用轿车推荐</text>
+    </view>
+  </view>
