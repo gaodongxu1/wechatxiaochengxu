@@ -1,0 +1,26 @@
+
+    <view>
+        <view class="video">
+            <video bindtap="play" class="videos" src="http://www.dongfeng-renault.com.cn/assets/Renault/Official/minisite/newKoleos/pc/img/Gallery/v2.mp4"/>
+        </view>
+        <view class="videofollow">
+        <view class="sportscars">
+        <view class="icon">
+            <image class="sportscar" src="{{sportscar}}"/>
+            <text class="font">车行天下</text>
+        </view>
+        </view>
+        <view class="sportscars">
+        <view class="icon">
+            <image class="sportscar" src="{{play}}"/>
+            <text class="font">{{Amountofplay}}</text>
+        </view>
+        </view>
+        <view class="icon sportscars">
+            <image class="sportscar" src="{{commentaries}}"/>
+        </view>
+        <view class="icon  sportscars">
+            <image class="sportscar" src="{{forwarding}}"/>
+        </view>
+        </view>
+    </view>

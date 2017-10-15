@@ -16,9 +16,11 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
+      'pages/Freetestdrive',
       'pages/myself',
       'pages/similarWeChat',
       'pages/index'
+      // 'pages/Freetestdrive'
       // 'pages/myself'
     ],
     window: {
@@ -28,12 +30,12 @@ export default class extends wepy.app {
       navigationBarTextStyle: 'black'
     },
     tabBar: {
+      color: '#D3D3D3',
+      selectedColor: '#000000',
       list: [{
         pagePath: 'pages/similarWeChat',
         iconPath: './photo/homepage.png',
         selectedIconPath: './photo/homepage.png',
-        color: '#000000',
-        selectedColor: '#7cfc00',
         text: '首页'
       }, {
         pagePath: 'pages/myself',

@@ -55,7 +55,7 @@
         <text bindtap="want" style="color:{{colorwant}}">我要买车</text>
       </view>
       <view class="topic-o">
-        <text bindtap="tryon" style="color:{{colortryon}}"> 免费试驾</text>
+        <text bindtap="Freetestdrive" style="color:{{colortryon}}">试驾评测</text>
       </view>
     </view>
     <view class="car-layout">
