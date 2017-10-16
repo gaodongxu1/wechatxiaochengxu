@@ -3,13 +3,17 @@
   display: flex;
   flex-direction: row; // border-radius: 50%;
   align-items: center;
+  border-radius: 50%;
   justify-content: center;
-  width: 86px;
-  height: 90px;
-  margin: 18px 1px 14px 1px;
+  width: 82px;
+  height: 87px;
+  margin: 9px 1px 10px 1px;
 }
+
 .individual-layout {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin: 13px 1px 14px 1px;
   background-color: lightpink;
@@ -25,6 +29,7 @@
   width: 30px;
   height: 30px;
 }
+
 .like {
   font-size: 13px;
   color: black;
@@ -32,18 +37,21 @@
   flex-direction: column;
   margin: 20px 55px 1px 55px;
 }
+
 .like-layout {
   display: flex;
   justify-content: center;
 }
+
 .collect {
   width: 26px;
   height: 29px;
 }
+
 .collect-layout {
-  display: flex;
-  // margin: 50px 5px 10px 10px;
+  display: flex; // margin: 50px 5px 10px 10px;
 }
+
 .collect-font {
   display: flex;
   align-items: center;
@@ -51,25 +59,29 @@
   color: lightgrey;
   margin: 0px 0px 0px 7px;
 }
+
 .line {
   height: 1px;
   width: 350px;
   background-color: grey;
   margin: 0px 5px 6px 5px;
 }
+
 .line-layout {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   margin: 8px 5px 10px 10px;
 }
+
 .last11 {
   margin: 60px 0px 0px 0px;
 }
 </style>
 <template>
   <view>
-    <view class ="individual-layout">
-      <image class="individual" src="{{individual}}"></image>
+    <view class="individual-layout">
+      <image class="individual" src="{{head}}"></image>
+      <text>{{name}}</text>
     </view>
     <view class="like-layout">
       <view class="like">
@@ -86,46 +98,46 @@
       </view>
     </view>
     <view class="last11">
-    <view class="line-layout">
-     <text class="line"></text>
-      <view class="collect-layout">
-        <image  class="collect" src="{{like}}"></image>
-        <text class="collect-font">收藏</text>
-    </view>
-    <text class="line"></text>
-    </view>
-    <view class="line-layout">
-     <text class="line"></text>
-      <view class="collect-layout">
-        <image  class="collect" src="{{feedback}}"></image>
-        <text class="collect-font">反馈问题</text>
-    </view>
-    <text class="line"></text>
-    </view>
-    <view class="line-layout">
-     <text class="line"></text>
-      <view class="collect-layout">
-        <image  class="collect" src="{{service}}"></image>
-        <text class="collect-font">客服电话：55555555</text>
-    </view>
-    <text class="line"></text>
-    </view>
-    <view class="line-layout">
-     <text class="line"></text>
-      <view class="collect-layout">
-        <image  class="collect" src="{{about}}"></image>
-        <text class="collect-font">关于</text>
-    </view>
-    <text class="line"></text>
-    </view>
-    <view class="line-layout">
-     <text class="line"></text>
-      <view class="collect-layout">
-        <image  class="collect" src="{{setting}}"></image>
-        <text class="collect-font">设置</text>
-    </view>
-    <text class="line"></text>
-    </view>
+      <view class="line-layout">
+        <text class="line"></text>
+        <view class="collect-layout">
+          <image class="collect" src="{{like}}"></image>
+          <text class="collect-font">收藏</text>
+        </view>
+        <text class="line"></text>
+      </view>
+      <view class="line-layout">
+        <text class="line"></text>
+        <view class="collect-layout">
+          <image class="collect" src="{{feedback}}"></image>
+          <text class="collect-font">反馈问题</text>
+        </view>
+        <text class="line"></text>
+      </view>
+      <view class="line-layout">
+        <text class="line"></text>
+        <view class="collect-layout">
+          <image class="collect" src="{{service}}"></image>
+          <text class="collect-font">客服电话：55555555</text>
+        </view>
+        <text class="line"></text>
+      </view>
+      <view class="line-layout">
+        <text class="line"></text>
+        <view class="collect-layout">
+          <image class="collect" src="{{about}}"></image>
+          <text class="collect-font">关于</text>
+        </view>
+        <text class="line"></text>
+      </view>
+      <view class="line-layout">
+        <text class="line"></text>
+        <view class="collect-layout">
+          <image class="collect" src="{{setting}}"></image>
+          <text class="collect-font">设置</text>
+        </view>
+        <text class="line"></text>
+      </view>
     </view>
   </view>
 </template>
@@ -144,12 +156,20 @@ export default class Index extends wepy.page {
     feedback: '../photo/feedback.png',
     service: '../photo/service.png',
     about: '../photo/about.png',
-    setting: '../photo/setting.png'
+    setting: '../photo/setting.png',
+    name: '',
+    head: ''
   }
   methods = {
   }
   onLoad() {
-
+    let self = this
+    wepy.getUserInfo({
+      success: function(res) {
+        self.name = res.userInfo.nickName
+        self.head = res.userInfo.avatarUrl
+      }
+    })
   }
 }
 </script>

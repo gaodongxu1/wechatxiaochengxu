@@ -1,26 +1,86 @@
 
+  <view>
+    <view class="topic">
+      <text>带给您全新的生活体验</text>
+    </view>
     <view>
-        <view class="video">
-            <video bindtap="play" class="videos" src="http://www.dongfeng-renault.com.cn/assets/Renault/Official/minisite/newKoleos/pc/img/Gallery/v2.mp4"/>
-        </view>
-        <view class="videofollow">
+      <view class="Dongfeng">
+        <text class="Dongfeng-Renault">东风雷诺---创新任性科技，完美选择</text>
+      </view>
+      <view class="video">
+        <video bindtap="play" class="videos" src="http://www.dongfeng-renault.com.cn/assets/Renault/Official/minisite/newKoleos/pc/img/Gallery/v2.mp4"/>
+      </view>
+      <view class="videofollow">
         <view class="sportscars">
-        <view class="icon">
+          <view class="icon">
             <image class="sportscar" src="{{sportscar}}"/>
             <text class="font">车行天下</text>
-        </view>
+          </view>
         </view>
         <view class="sportscars">
-        <view class="icon">
+          <view class="icon">
             <image class="sportscar" src="{{play}}"/>
-            <text class="font">{{Amountofplay}}</text>
-        </view>
+            <text class="font">{{Renault}}</text>
+          </view>
         </view>
         <view class="icon sportscars">
-            <image class="sportscar" src="{{commentaries}}"/>
+          <image class="sportscar" src="{{commentaries}}"/>
         </view>
         <view class="icon  sportscars">
-            <image class="sportscar" src="{{forwarding}}"/>
+          <image bindtap="share" class="sportscar" src="{{forwarding}}"/>
         </view>
-        </view>
+      </view>
     </view>
+    <view>
+      <text class="Dongfeng-Renault">东风雷诺科雷傲---傲人魅力，完美解读</text>
+    </view>
+    <view class="video">
+      <video bindtap="play" class="videos" src="http://ips.ifeng.com/video19.ifeng.com/video09/2017/05/19/3975179-102-009-222732.mp4?vid=10d92ba2-fd62-4ea3-9d6d-1f2dddfba8ef&uid=1508135868992_ffpq9i7807&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E5%A8%B1%E4%B9%90%E8%81%9A%E7%84%A6&cat=114-115&ptype=114&platform=pc&sourceType=h5&dt=1494676833000&gid=fkMyUV8j5x53&sign=dbd7e3b65e6c7e91874c401c6384aa73&tm=1508135870073"/>
+    </view>
+    <view class="videofollow">
+      <view class="sportscars">
+        <view class="icon">
+          <image class="sportscar" src="{{caricon}}"/>
+          <text class="font">海外车评</text>
+        </view>
+      </view>
+      <view class="sportscars">
+        <view class="icon">
+          <image class="sportscar" src="{{play}}"/>
+          <text class="font">{{Renaults}}</text>
+        </view>
+      </view>
+      <view class="icon sportscars">
+        <image class="sportscar" src="{{commentaries}}"/>
+      </view>
+      <view class="icon  sportscars">
+        <image class="sportscar" src="{{forwarding}}"/>
+      </view>
+    </view>
+    <view>
+      <text class="Dongfeng-Renault">全新ATZ---魅.力.科.技</text>
+    </view>
+    <view class="video">
+      <video bindtap="play" class="videos" src="http://test2.cloud-top.com.cn/1607_atenza.m/min/video/7.mp4"/>
+    </view>
+    <view class="videofollow">
+      <view class="sportscars">
+        <view class="icon">
+          <image class="sportscar" src="{{dealer}}"/>
+          <text class="font">ayahaoatz</text>
+        </view>
+      </view>
+      <view class="sportscars">
+        <view class="icon">
+          <image class="sportscar" src="{{play}}"/>
+          <text class="font">{{atz}}</text>
+        </view>
+      </view>
+      <view class="icon sportscars">
+        <image class="sportscar" src="{{commentaries}}"/>
+      </view>
+      <view class="icon  sportscars">
+        <image class="sportscar" src="{{forwarding}}"/>
+      </view>
+    </view>
+  </view>

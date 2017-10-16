@@ -1,7 +1,8 @@
 
   <view>
     <view class="individual-layout">
-      <image class="individual" src="{{individual}}"/>
+      <image class="individual" src="{{head}}"/>
+      <text>{{name}}</text>
     </view>
     <view class="like-layout">
       <view class="like">
@@ -18,45 +19,45 @@
       </view>
     </view>
     <view class="last11">
-    <view class="line-layout">
-     <text class="line"/>
-      <view class="collect-layout">
-        <image class="collect" src="{{like}}"/>
-        <text class="collect-font">收藏</text>
-    </view>
-    <text class="line"/>
-    </view>
-    <view class="line-layout">
-     <text class="line"/>
-      <view class="collect-layout">
-        <image class="collect" src="{{feedback}}"/>
-        <text class="collect-font">反馈问题</text>
-    </view>
-    <text class="line"/>
-    </view>
-    <view class="line-layout">
-     <text class="line"/>
-      <view class="collect-layout">
-        <image class="collect" src="{{service}}"/>
-        <text class="collect-font">客服电话：55555555</text>
-    </view>
-    <text class="line"/>
-    </view>
-    <view class="line-layout">
-     <text class="line"/>
-      <view class="collect-layout">
-        <image class="collect" src="{{about}}"/>
-        <text class="collect-font">关于</text>
-    </view>
-    <text class="line"/>
-    </view>
-    <view class="line-layout">
-     <text class="line"/>
-      <view class="collect-layout">
-        <image class="collect" src="{{setting}}"/>
-        <text class="collect-font">设置</text>
-    </view>
-    <text class="line"/>
-    </view>
+      <view class="line-layout">
+        <text class="line"/>
+        <view class="collect-layout">
+          <image class="collect" src="{{like}}"/>
+          <text class="collect-font">收藏</text>
+        </view>
+        <text class="line"/>
+      </view>
+      <view class="line-layout">
+        <text class="line"/>
+        <view class="collect-layout">
+          <image class="collect" src="{{feedback}}"/>
+          <text class="collect-font">反馈问题</text>
+        </view>
+        <text class="line"/>
+      </view>
+      <view class="line-layout">
+        <text class="line"/>
+        <view class="collect-layout">
+          <image class="collect" src="{{service}}"/>
+          <text class="collect-font">客服电话：55555555</text>
+        </view>
+        <text class="line"/>
+      </view>
+      <view class="line-layout">
+        <text class="line"/>
+        <view class="collect-layout">
+          <image class="collect" src="{{about}}"/>
+          <text class="collect-font">关于</text>
+        </view>
+        <text class="line"/>
+      </view>
+      <view class="line-layout">
+        <text class="line"/>
+        <view class="collect-layout">
+          <image class="collect" src="{{setting}}"/>
+          <text class="collect-font">设置</text>
+        </view>
+        <text class="line"/>
+      </view>
     </view>
   </view>

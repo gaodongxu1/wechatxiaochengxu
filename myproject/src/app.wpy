@@ -16,12 +16,11 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/Freetestdrive',
-      'pages/myself',
       'pages/similarWeChat',
-      'pages/index'
-      // 'pages/Freetestdrive'
-      // 'pages/myself'
+      'pages/myself',
+      'pages/index',
+      'pages/Freetestdrive',
+      'pages/service'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -38,25 +37,15 @@ export default class extends wepy.app {
         selectedIconPath: './photo/homepage.png',
         text: '首页'
       }, {
+        pagePath: 'pages/service',
+        iconPath: './photo/ask.png',
+        selectedIconPath: './photo/ask.png',
+        text: '服务'
+      }, {
         pagePath: 'pages/myself',
         iconPath: './photo/I.png',
         selectedIconPath: './photo/I.png',
         text: '个人中心'
-      }, {
-        pagePath: 'pages/index',
-        iconPath: './photo/Shopping.png',
-        selectedIconPath: './photo/Shopping.png',
-        text: '购物车'
-      }, {
-        pagePath: 'pages/index',
-        iconPath: './photo/ask.png',
-        selectedIconPath: './photo/ask.png',
-        text: '咨询'
-      }, {
-        pagePath: 'pages/index',
-        iconPath: './photo/more.png',
-        selectedIconPath: './photo/more.png',
-        text: '更多'
       }]
     }
   }

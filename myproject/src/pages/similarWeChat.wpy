@@ -173,7 +173,7 @@
     </view>
     <view class="topic">
       <view class="topic-o">
-        <text @tap="want" style="color:{{colorwant}}">我要买车</text>
+        <text @tap="want" style="color:{{colorwant}}">我要选车</text>
       </view>
       <view class="topic-o">
         <text @tap="Freetestdrive" style="color:{{colortryon}}">试驾评测</text>

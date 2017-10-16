@@ -1,0 +1,12 @@
+
+  <view>
+    <view class="backgroundcar">
+      <swiper style="width: 340px; height: 205px;" indicator-dots="true" autoplay="true" interval="3200" duration="500">
+        <block  wx:for="{{cars}}" wx:key="index">
+          <swiper-item>
+            <image src="{{item}}" style="width: 340px; height: 195px"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
