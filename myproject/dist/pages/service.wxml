@@ -1,12 +1,33 @@
 
   <view>
     <view class="backgroundcar">
-      <swiper style="width: 340px; height: 205px;" indicator-dots="true" autoplay="true" interval="3200" duration="500">
+      <swiper style="width: 340px; height: 185px;" indicator-dots="true" autoplay="true" interval="3200" duration="500">
         <block  wx:for="{{cars}}" wx:key="index">
           <swiper-item>
-            <image src="{{item}}" style="width: 340px; height: 195px"/>
+            <image src="{{item}}" style="width: 340px; height: 175px"/>
           </swiper-item>
         </block>
       </swiper>
     </view>
+    <view>
+      <text class="service">用车服务</text>
+    </view>
+    <view class="row">
+    <view class="Driving-registration">
+      <image class="enrol" src="{{enrol}}"/>
+      <text class="Driving">驾校报名</text>
+      </view>
+      <view class="Driving-registration">
+      <image class="enrol" src="{{illegal}}"/>
+      <text class="Driving">查违章</text>
+      </view>
+      <view class="Driving-registration">
+      <image class="enrol" src="{{maintenance}}"/>
+      <text class="Driving">品质保养</text>
+      </view>
+      </view>
+      <view class="Driving-registration">
+      <image class="enrol" src="{{fs}}"/>
+      <text class="Driving">4S店保养</text>
+      </view>
   </view>

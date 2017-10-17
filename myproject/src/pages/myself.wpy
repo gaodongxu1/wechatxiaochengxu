@@ -63,7 +63,7 @@
 .line {
   height: 1px;
   width: 350px;
-  background-color: grey;
+  background-color: lightgray;
   margin: 0px 5px 6px 5px;
 }
 

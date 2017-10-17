@@ -3,18 +3,63 @@
   display: flex;
   justify-content: center;
 }
+.service {
+  font-size: 17px;
+  color: red;
+}
+.enrol {
+  width: 55px;
+  height: 55px;
+}
+.Driving {
+  font-size: 14px;
+  color: black;
+  margin: 10px 0px 0px 0px;
+}
+.Driving-registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 </style>
 <template>
   <view>
     <view class="backgroundcar">
-      <swiper style="width: 340px; height: 205px;" indicator-dots="true" autoplay="true" interval="3200" duration="500">
+      <swiper style="width: 340px; height: 185px;" indicator-dots="true" autoplay="true" interval="3200" duration="500">
         <block wx:for="{{cars}}" wx:key="index">
           <swiper-item>
-            <image src="{{item}}" style="width: 340px; height: 195px"></image>
+            <image src="{{item}}" style="width: 340px; height: 175px"></image>
           </swiper-item>
         </block>
       </swiper>
     </view>
+    <view>
+      <text class="service">用车服务</text>
+    </view>
+    <view class="row">
+    <view class="Driving-registration">
+      <image class="enrol" src="{{enrol}}"></image>
+      <text class="Driving">驾校报名</text>
+      </view>
+      <view class="Driving-registration">
+      <image class="enrol" src="{{illegal}}"></image>
+      <text class="Driving">查违章</text>
+      </view>
+      <view class="Driving-registration">
+      <image class="enrol" src="{{maintenance}}"></image>
+      <text class="Driving">品质保养</text>
+      </view>
+      </view>
+      <view class="Driving-registration">
+      <image class="enrol" src="{{fs}}"></image>
+      <text class="Driving">4S店保养</text>
+      </view>
   </view>
 </template>
 <script>
@@ -25,10 +70,14 @@ export default class Index extends wepy.page {
   }
   data = {
     cars: [
-      '../photo/hyundai.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508249147103&di=85789bc243d4e01476ff6b11e559780e&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F13%2F02%2F45%2F53q58PIChxI.jpg',
       '../photo/advertising.jpg',
       '../photo/service.jpg'
-    ]
+    ],
+    enrol: 'http://img2.imgtn.bdimg.com/it/u=1374822400,191906308&fm=27&gp=0.jpg',
+    illegal: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508252360386&di=0adb790e1a81847bfe892a75ffcfa690&imgtype=0&src=http%3A%2F%2Fstorepic.oppomobile.com%2FuploadFiles%2Fcrawl%2FPImages%2F201603%2F25%2F5e3254ae688bff50ec397a789310b829.png.icon.h256.jpg',
+    maintenance: 'http://kixxlube.gscaltex.com.cn/uploads/image/2017/0919/20170919111616_7621.jpg',
+    fs: 'http://img5.imgtn.bdimg.com/it/u=467274387,59206268&fm=27&gp=0.jpg'
   }
   methods = {
   }

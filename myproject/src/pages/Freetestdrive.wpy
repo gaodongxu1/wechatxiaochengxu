@@ -169,45 +169,9 @@ export default class Index extends wepy.page {
       self.Renault++
       self.atz++
       self.Renaults++
-    },
-    // onShareTap: function (event) {
-    //   let self = this
-    //   self.itemList = [
-    //     '分享给微信好友',
-    //     '分享到朋友圈',
-    //     '分享到微博',
-    //     '分享到QQ'
-    //   ]
-    //   // wx.showActionSheet({
-    //   //   itemList:itemList,
-    //   //   itemcolor: '#405f8',
-    //   //   success:function(ree) {
-    //   //     wx.showModal ({
-    //   //       title: '用户'+itemList [res.tapIndex],
-    //   //       content: '用户是否取消?'+res.cancel+'现在无法实现分享功能'
-    //   //     })
-    //   //   }
-    //   // })
-    // }
-    share() {
-      wx.showShareMenu({
-        withShareTicket: true
-      })
     }
   }
   onLoad() {
-  }
-  onShareAppMessage(res) {
-    // return {
-    //   title: '自定义转发标题',
-    //   path: '/pages/user?id=123',
-    //   success: function(res) {
-    //     // 转发成功
-    //   },
-    //   fail: function(res) {
-    //     // 转发失败
-    //   }
-    // }
   }
 }
 </script>

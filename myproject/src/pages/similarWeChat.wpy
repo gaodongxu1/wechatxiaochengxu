@@ -125,10 +125,10 @@
       <input placeholder="点击搜索" auto-focus/>
     </view>
     <view class="backgroundcar">
-      <swiper style="width: 340px; height: 205px;" indicator-dots="true" autoplay="true" interval="3200" duration="500">
+      <swiper style="width: 340px; height: 188px;" indicator-dots="true" autoplay="true" interval="3200" duration="500">
         <block wx:for="{{cars}}" wx:key="index">
           <swiper-item>
-            <image src="{{item}}" style="width: 340px; height: 195px"></image>
+            <image src="{{item}}" style="width: 340px; height: 177px"></image>
           </swiper-item>
         </block>
       </swiper>
@@ -346,8 +346,8 @@ export default class Index extends wepy.page {
     corolla: '../photo/corolla.jpg',
     cars: [
       '../photo/maserati.jpg',
-      '../photo/ferrari.jpg',
-      '../photo/R8.jpg'
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508248999937&di=9161b94e0e491120904088018eee42f2&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F562c11dfa9ec8a13a75d3ee1fd03918fa0ecc068.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508248950008&di=e293f3b5ca669891e4bf565138364c08&imgtype=0&src=http%3A%2F%2Fwww.sinaimg.cn%2Fqc%2Fphoto%2F78thgmslivep%2FU2050P33T148D227030F2100DT20080305111926.jpg'
     ],
     colorwant: 'black',
     colortryon: 'green'

@@ -1,1 +1,1 @@
-.backgroundcar{display:flex;justify-content:center}
+.backgroundcar{display:flex;justify-content:center}.service{font-size:17px;color:red}.enrol{width:55px;height:55px}.Driving{font-size:14px;color:black;margin:10px 0 0 0}.Driving-registration{display:flex;flex-direction:column;justify-content:center;align-items:center}.row{display:flex;flex-direction:row;justify-content:center}
