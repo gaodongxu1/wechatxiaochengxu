@@ -1,0 +1,1 @@
+.problemfeedback{font-size:14px;color:black;background-color:white;margin:5px 0 3px 0}.backgroud{background-color:lightgray;width:375px;height:603px}.border{display:flex;justify-content:center}.phone{display:flex;justify-content:center;margin:3px 0 5px 0}.submit{display:flex;flex:row;justify-content:center;margin:25px 0 0 0}

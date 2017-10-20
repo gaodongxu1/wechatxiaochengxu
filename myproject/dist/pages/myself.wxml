@@ -31,7 +31,7 @@
         <text class="line"/>
         <view class="collect-layout">
           <image class="collect" src="{{feedback}}"/>
-          <text class="collect-font">反馈问题</text>
+          <text bindtap="problems" class="collect-font">反馈问题</text>
         </view>
         <text class="line"/>
       </view>

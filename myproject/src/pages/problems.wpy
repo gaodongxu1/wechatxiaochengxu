@@ -1,0 +1,55 @@
+<style lang='less'>
+.problemfeedback {
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  margin:5px 0px 3px 0px;
+}
+.backgroud {
+  background-color: lightgray;
+  width: 375px;
+  height: 603px;
+}
+.border {
+  display: flex;
+  justify-content: center;
+}
+.phone {
+  display: flex;
+  justify-content: center;
+  margin:3px 0px 5px 0px;
+}
+.submit {
+  display: flex;
+  flex: row;
+  justify-content: center;
+  margin: 25px 0px 0px 0px;
+}
+</style>
+<template>
+<view class="backgroud ">
+<view class="border">
+  <textarea style="width: 360px; height: 150px;" class="problemfeedback" placeholder="请描述您使用过程中出现的问题，我们将尽快优化系统功能！" auto-focus></textarea>
+</view>
+<view class="phone">
+  <textarea style="width: 360px; height: 30px;" class="problemfeedback" placeholder="(必填)您的手机号" auto-focus></textarea>
+</view>
+<view> 
+  <text @tap="submit" class="submit">提交</text>
+</view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '意见反馈'
+  }
+  data = {
+  }
+  methods = {
+  }
+  onLoad() {
+  }
+}
+</script>

@@ -110,7 +110,7 @@
         <text class="line"></text>
         <view class="collect-layout">
           <image class="collect" src="{{feedback}}"></image>
-          <text class="collect-font">反馈问题</text>
+          <text @tap="problems" class="collect-font">反馈问题</text>
         </view>
         <text class="line"></text>
       </view>
@@ -161,6 +161,11 @@ export default class Index extends wepy.page {
     head: ''
   }
   methods = {
+    problems() {
+      wepy.navigateTo({
+        url: './problems'
+      })
+    }
   }
   onLoad() {
     let self = this
@@ -168,6 +173,10 @@ export default class Index extends wepy.page {
       success: function(res) {
         self.name = res.userInfo.nickName
         self.head = res.userInfo.avatarUrl
+        self.setData({
+          head: res.userInfo.avatarUrl,
+          name: res.userInfo.nickName
+        })
       }
     })
   }

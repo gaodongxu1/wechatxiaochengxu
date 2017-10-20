@@ -10,10 +10,12 @@
       </swiper>
     </view>
     <view>
-      <text class="service">用车服务</text>
+      <text class="service">用车服务--</text>
+      <text class="highservice">High quality service</text>
     </view>
+    <view class="backgroundred">
     <view class="row">
-    <view class="Driving-registration">
+    <view class="buy-registration">
       <image class="enrol" src="{{enrol}}"/>
       <text class="Driving">驾校报名</text>
       </view>
@@ -26,8 +28,43 @@
       <text class="Driving">品质保养</text>
       </view>
       </view>
+      <view class="row">
       <view class="Driving-registration">
       <image class="enrol" src="{{fs}}"/>
       <text class="Driving">4S店保养</text>
+      </view>
+      <view class="Driving-registration">
+      <image class="enrol" src="{{nsurance}}"/>
+      <text class="Driving">汽车保险</text>
+      </view>
+      <view class="Driving-registration">
+      <image class="enrol" src="{{Generationofdriving}}"/>
+      <text class="Driving">找代驾</text>
+      </view>
+      </view>
+      </view>
+      <view class="bservice">
+      <text class="service">买车服务--</text>
+      <text class="highservice">High quality service</text>
+    </view>
+    <view class="backgroundredb">
+    <view class="buyservice">
+    <view class="buy-registration">
+      <image class="enrol" src="{{loan}}"/>
+      <text class="buyfont ">贷款买车</text>
+      </view>
+      <view class="buy-registration">
+      <image class="enrol" src="{{usedcar}}"/>
+      <text class="buyfont ">二手车</text>
+      </view>
+      <view class="buy-registration">
+      <image class="enrol" src="{{preferential}}"/>
+      <text class="buyfont ">超值特惠</text>
+      </view>
+      <view class="buy-registration">
+      <image class="enrol" src="{{smartcar}}"/>
+      <text class="buyfont ">智能选车</text>
+      </view>
+      </view>
       </view>
   </view>

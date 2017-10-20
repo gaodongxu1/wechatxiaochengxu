@@ -20,7 +20,8 @@ export default class extends wepy.app {
       'pages/myself',
       'pages/index',
       'pages/Freetestdrive',
-      'pages/service'
+      'pages/service',
+      'pages/problems'
     ],
     window: {
       backgroundTextStyle: 'light',

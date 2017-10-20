@@ -5,7 +5,12 @@
 }
 .service {
   font-size: 17px;
-  color: red;
+  color: black;
+  margin: 30px 0px 20px 10px;
+}
+.highservice {
+  font-size: 13px;
+  color: yellowgreen;
 }
 .enrol {
   width: 55px;
@@ -21,11 +26,43 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 25px 28px 20px 28px;
 }
 .row {
   display: flex;
-  flex-direction: row;
   justify-content: center;
+}
+.backgroundred {
+  background: red;
+  height: 240px;
+  width: 350px;
+  margin: 10px 10px 0px 12px;
+}
+.buyservice {
+  display: flex;
+  justify-content: center;
+  margin: 17px 15px 10px 15px;
+}
+.buy-registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 20px 20px 20px;
+}
+.backgroundredb {
+  background: red;
+  height: 110px;
+  width: 350px;
+  margin: 0px 10px 0px 12px;
+}
+.buyfont {
+  font-size: 12px;
+  color: black;
+  margin: 10px 0px 0px 0px;
+}
+.bservice {
+  margin: 5px 0px 6px 4px;  
 }
 </style>
 <template>
@@ -40,10 +77,12 @@
       </swiper>
     </view>
     <view>
-      <text class="service">用车服务</text>
+      <text class="service">用车服务--</text>
+      <text class="highservice">High quality service</text>
     </view>
+    <view class="backgroundred">
     <view class="row">
-    <view class="Driving-registration">
+    <view class="buy-registration">
       <image class="enrol" src="{{enrol}}"></image>
       <text class="Driving">驾校报名</text>
       </view>
@@ -56,9 +95,44 @@
       <text class="Driving">品质保养</text>
       </view>
       </view>
+      <view class="row">
       <view class="Driving-registration">
       <image class="enrol" src="{{fs}}"></image>
       <text class="Driving">4S店保养</text>
+      </view>
+      <view class="Driving-registration">
+      <image class="enrol" src="{{nsurance}}"></image>
+      <text class="Driving">汽车保险</text>
+      </view>
+      <view class="Driving-registration">
+      <image class="enrol" src="{{Generationofdriving}}"></image>
+      <text class="Driving">找代驾</text>
+      </view>
+      </view>
+      </view>
+      <view class="bservice">
+      <text class="service">买车服务--</text>
+      <text class="highservice">High quality service</text>
+    </view>
+    <view class="backgroundredb">
+    <view class="buyservice">
+    <view class="buy-registration">
+      <image class="enrol" src="{{loan}}"></image>
+      <text class="buyfont ">贷款买车</text>
+      </view>
+      <view class="buy-registration">
+      <image class="enrol" src="{{usedcar}}"></image>
+      <text class="buyfont ">二手车</text>
+      </view>
+      <view class="buy-registration">
+      <image class="enrol" src="{{preferential}}"></image>
+      <text class="buyfont ">超值特惠</text>
+      </view>
+      <view class="buy-registration">
+      <image class="enrol" src="{{smartcar}}"></image>
+      <text class="buyfont ">智能选车</text>
+      </view>
+      </view>
       </view>
   </view>
 </template>
@@ -77,9 +151,20 @@ export default class Index extends wepy.page {
     enrol: 'http://img2.imgtn.bdimg.com/it/u=1374822400,191906308&fm=27&gp=0.jpg',
     illegal: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508252360386&di=0adb790e1a81847bfe892a75ffcfa690&imgtype=0&src=http%3A%2F%2Fstorepic.oppomobile.com%2FuploadFiles%2Fcrawl%2FPImages%2F201603%2F25%2F5e3254ae688bff50ec397a789310b829.png.icon.h256.jpg',
     maintenance: 'http://kixxlube.gscaltex.com.cn/uploads/image/2017/0919/20170919111616_7621.jpg',
-    fs: 'http://img5.imgtn.bdimg.com/it/u=467274387,59206268&fm=27&gp=0.jpg'
+    fs: 'http://img5.imgtn.bdimg.com/it/u=467274387,59206268&fm=27&gp=0.jpg',
+    nsurance: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508312432127&di=3775c1cbacf1795f34d0ec4586d8e494&imgtype=0&src=http%3A%2F%2Fpic.cn2che.com%2Fphotos%2F2014%2F09%2F09%2F20140909115939936.png',
+    Generationofdriving: 'http://3.pic.pc6.com/up/2016-4/20164169725.png',
+    loan: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=96163718,1260971984&fm=27&gp=0.jpg',
+    usedcar: 'http://img3.imgtn.bdimg.com/it/u=4210326992,2042327993&fm=27&gp=0.jpg',
+    preferential: 'http://img1.imgtn.bdimg.com/it/u=2228783489,1434265682&fm=27&gp=0.jpg',
+    smartcar: 'http://img3.imgtn.bdimg.com/it/u=67475074,1548753971&fm=27&gp=0.jpg'
   }
   methods = {
+    problems() {
+      wepy.navigateTo({
+        url: './problems'
+      })
+    }
   }
   onLoad() {
   }

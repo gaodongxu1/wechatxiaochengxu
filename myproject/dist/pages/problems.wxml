@@ -1,0 +1,12 @@
+
+<view class="backgroud ">
+<view class="border">
+  <textarea style="width: 360px; height: 150px;" class="problemfeedback" placeholder="请描述您使用过程中出现的问题，我们将尽快优化系统功能！" auto-focus/>
+</view>
+<view class="phone">
+  <textarea style="width: 360px; height: 30px;" class="problemfeedback" placeholder="(必填)您的手机号" auto-focus/>
+</view>
+<view> 
+  <text bindtap="submit" class="submit">提交</text>
+</view>
+  </view>
