@@ -21,7 +21,8 @@ export default class extends wepy.app {
       'pages/index',
       'pages/Freetestdrive',
       'pages/service',
-      'pages/problems'
+      'pages/problems',
+      'pages/bmw'
     ],
     window: {
       backgroundTextStyle: 'light',

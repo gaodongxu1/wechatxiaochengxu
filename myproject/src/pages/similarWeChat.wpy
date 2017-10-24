@@ -1,21 +1,24 @@
 <style lang='less'>
 .background {
-  background-color: lightcyan;
+  // background-color: lightcyan;
 }
 .input {
   display: flex;
-  margin: 10px 2px 3px 5px;
+  margin: 10px 2px 3px 17px;
+  font-size: 13px;
 }
 .backgroundcar {
   display: flex;
   justify-content: center;
+  background-color: #F5F5F5;
 }
 .border {
   display: flex;
   border: 2px solid grey;
   padding: 3px 30px;
   background: white;
-  width: 300px;
+  width: 270px;
+  height: 18px;
   border-radius: 18px;
 }
 .car-icon {
@@ -42,6 +45,8 @@
   display: flex;
   justify-content: center;
   margin: 20px 10px;
+  background-color: #F5F5F5;
+  height: 70px;
 }
 
 .nameicon-column {
@@ -52,6 +57,7 @@
   display: flex;
   justify-content: center;
   margin: 20px 10px;
+  background-color: #F5F5F5;
 }
 
 .topic-o {
@@ -69,6 +75,7 @@
   display: flex;
   justify-content: center;
   margin: 5px 3px 5px 3px;
+  background-color: #F5F5F5;
 }
 
 .picture-layout {
@@ -109,6 +116,7 @@
   flex-direction: row;
   justify-content: center;
   margin: 20px 4px 20px 4px;
+  background-color: #F5F5F5;
 }
 .lastlayout {
   display: flex;
@@ -156,7 +164,7 @@
         <view>
           <image @tap="car-icon" class="caricon-size" src="{{bmw}}"></image>
         </view>
-        <text @tap="car-name" class="car-name">宝马</text>
+        <text @tap="bmw" class="car-name">宝马</text>
       </view>
       <view nameicon-column>
         <view>
@@ -325,12 +333,12 @@ export default class Index extends wepy.page {
     navigationBarTitleText: '爱车族'
   }
   data = {
-    dasauto: '../photo/大众.jpg',
-    toyota: '../photo/丰田.jpg',
+    dasauto: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4147580671,689854096&fm=27&gp=0.jpg',
+    toyota: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508735717787&di=8d6c3603419ae312ae42ee808ee25efc&imgtype=0&src=http%3A%2F%2Fimg1.gtimg.com%2Fauto%2Fpics%2Fhv1%2F26%2F63%2F1765%2F114785216.jpg',
     honda: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1135878436,225409949&fm=27&gp=0.jpg',
     bmw: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508491726102&di=5c817959392d2c077e15d667e9b74a02&imgtype=0&src=http%3A%2F%2Fimg0.pcauto.com.cn%2Fpcauto%2F1108%2F02%2F1589644_3a721c3b7033a6fbd5622599.jpg',
-    kia: '../photo/起亚.jpg',
-    benz: '../photo/奔驰.jpg',
+    kia: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508735762701&di=347314d63daaa2dea1e149701a2c3ed2&imgtype=0&src=http%3A%2F%2Fwww.btcha.com%2Fuploadfile%2F2015%2F0807%2F20150807102808147.jpg',
+    benz: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508735800804&di=537cce927c2668faca4515ac4fd70ca9&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D79b8cdd1cbea15ce41bbe80d833016c5%2F4bed2e738bd4b31cfd8237ef85d6277f9e2ff82c.jpg',
     Mazda: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1828279604,1147942714&fm=27&gp=0.jpg',
     Passat: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2839208880,426618188&fm=27&gp=0.jpg',
     bmwz4: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1955450579,719589159&fm=27&gp=0.jpg',
@@ -381,6 +389,11 @@ export default class Index extends wepy.page {
     Freetestdrive() {
       wepy.navigateTo({
         url: './Freetestdrive'
+      })
+    },
+    bmw() {
+      wepy.navigateTo({
+        url: './bmw'
       })
     }
   }

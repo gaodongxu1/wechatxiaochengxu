@@ -10,7 +10,7 @@
 }
 .highservice {
   font-size: 13px;
-  color: yellowgreen;
+  color: red;
 }
 .enrol {
   width: 55px;
@@ -33,7 +33,7 @@
   justify-content: center;
 }
 .backgroundred {
-  background: red;
+  background: #F5F5F5;
   height: 240px;
   width: 350px;
   margin: 10px 10px 0px 12px;
@@ -51,7 +51,7 @@
   margin: 15px 20px 20px 20px;
 }
 .backgroundredb {
-  background: red;
+  background: #F5F5F5;
   height: 110px;
   width: 350px;
   margin: 0px 10px 0px 12px;
@@ -160,11 +160,6 @@ export default class Index extends wepy.page {
     smartcar: 'http://img3.imgtn.bdimg.com/it/u=67475074,1548753971&fm=27&gp=0.jpg'
   }
   methods = {
-    problems() {
-      wepy.navigateTo({
-        url: './problems'
-      })
-    }
   }
   onLoad() {
   }

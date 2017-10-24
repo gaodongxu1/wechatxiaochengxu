@@ -35,7 +35,7 @@
         <view>
           <image bindtap="car-icon" class="caricon-size" src="{{bmw}}"/>
         </view>
-        <text bindtap="car-name" class="car-name">宝马</text>
+        <text bindtap="bmw" class="car-name">宝马</text>
       </view>
       <view nameicon-column="nameicon-column">
         <view>

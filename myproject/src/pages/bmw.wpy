@@ -1,0 +1,74 @@
+<style lang='less'>
+.bmwz4 {
+  height: 150px;
+  width: 150px;
+}
+.bmw-z4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.change {
+  display: flex;
+  justify-content: center;
+  margin: 13px 0px 0px 0px;
+  background-color: #f5f5f5;
+}
+// .refresh {
+//   height: 5px;
+//   width: 5px;
+// }
+</style>
+<template>
+<view>
+  <!-- <view>
+    <text @tap="button1">按钮1</text>
+    <text @tap="button2">按钮2</text>
+  </view> 
+  <view wx:if="{{show}}">
+    <text></text>
+  </view>
+  <view wx:else="{{show}}">
+    <text></text>
+  </view> -->
+  <view wx:if="{{show}}">
+  <view class="bmw-z4">
+    <image class="bmw" src="{{bmw}}"></image>
+    </view>
+    </view>
+    <view wx:else="{{show}}">
+    <view class="bmw-z4">
+    <image class="bmw" src="{{bmw1}}"></image>
+    </view>
+    </view>
+    <view class="change">
+    <text @tap="change">换一批</text>
+    </view>
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '宝马_百科'
+  }
+  data = {
+    show: true,
+    refresh: '../photo/refresh.png',
+    bmw1: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508839462112&di=3b91b411f14964f9fc0cfb913b747150&imgtype=0&src=http%3A%2F%2Fpic29.nipic.com%2F20130524%2F9885883_165508898000_2.jpg',
+    bmw: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508839462112&di=0ae0a867f2fd5e0914d12a08b0a5e774&imgtype=0&src=http%3A%2F%2Fpic36.nipic.com%2F20131128%2F9885883_090328830000_2.jpg'
+  }
+  methods = {
+    change() {
+      let self = this
+      self.show = false
+    }
+    // button2() {
+    //   let self = this
+    //   self.show = false
+    // }
+  }
+  onLoad() {
+  }
+}
+</script>

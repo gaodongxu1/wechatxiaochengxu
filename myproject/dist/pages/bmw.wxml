@@ -1,0 +1,26 @@
+
+<view>
+  <!-- <view>
+    <text bindtap="button1">按钮1</text>
+    <text bindtap="button2">按钮2</text>
+  </view> 
+  <view wx:if="{{show}}">
+    <text></text>
+  </view>
+  <view wx:else="{{show}}">
+    <text></text>
+  </view> -->
+  <view  wx:if="{{show}}">
+  <view class="bmw-z4">
+    <image class="bmw" src="{{bmw}}"/>
+    </view>
+    </view>
+    <view  wx:else="{{show}}">
+    <view class="bmw-z4">
+    <image class="bmw" src="{{bmw1}}"/>
+    </view>
+    </view>
+    <view class="change">
+    <text bindtap="change">换一批</text>
+    </view>
+</view>
