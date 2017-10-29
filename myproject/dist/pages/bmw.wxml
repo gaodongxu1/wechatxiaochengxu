@@ -1,15 +1,5 @@
 
 <view>
-  <!-- <view>
-    <text bindtap="button1">按钮1</text>
-    <text bindtap="button2">按钮2</text>
-  </view> 
-  <view wx:if="{{show}}">
-    <text></text>
-  </view>
-  <view wx:else="{{show}}">
-    <text></text>
-  </view> -->
   <view  wx:if="{{show}}">
   <view class="bmw-z4">
     <image class="bmw" src="{{bmw}}"/>
@@ -23,4 +13,22 @@
     <view class="change">
     <text bindtap="change">换一批</text>
     </view>
+    <view class="raffle">
+    <view>
+      <text class="integral">积分大抽奖</text>
+      </view>
+      <view>
+        <text class="million">👇百万豪礼等你拿👇</text>
+        </view>
+        </view>
+        <view class="start">
+          <text bindtap="start">开始抽奖</text>
+          <text bindtap="pick">领取奖励</text>
+        </view>
+        <view class="award">
+          <image class="awards" src="{{awards}}"/>
+          </view>
+          <view>
+            <text class="toasts">{{toast}}</text>
+            </view>
 </view>

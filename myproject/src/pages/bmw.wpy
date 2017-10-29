@@ -14,23 +14,52 @@
   margin: 13px 0px 0px 0px;
   background-color: #f5f5f5;
 }
-// .refresh {
-//   height: 5px;
-//   width: 5px;
-// }
+.integral {
+  font-size: 30px;
+  color: red;
+  margin: 15px 5px 5px 5px;
+  display: flex;
+  justify-content: center;
+}
+.million {
+  font-size: 15px;
+  color: red;
+  font-style: italic ;
+  margin: 15px 5px 5px 5px;
+  display: flex;
+  justify-content: center;
+}
+.raffle {
+  background-color: #f5f5f5;
+  width: 379px;
+  height: 85px;
+}
+.start {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+.awards {
+  width: 270px;
+  height: 200px;
+  display: flex;
+  flex-direction: center;
+  margin: 10px 0px 0px 0px;
+}
+.award {
+  display: flex;
+  justify-content: center;
+}
+.toasts {
+  font-size: 30;
+  color: red;
+  display:  flex;
+  justify-content: center;
+  margin: 10px 0px 0px 0px;
+}
 </style>
 <template>
 <view>
-  <!-- <view>
-    <text @tap="button1">按钮1</text>
-    <text @tap="button2">按钮2</text>
-  </view> 
-  <view wx:if="{{show}}">
-    <text></text>
-  </view>
-  <view wx:else="{{show}}">
-    <text></text>
-  </view> -->
   <view wx:if="{{show}}">
   <view class="bmw-z4">
     <image class="bmw" src="{{bmw}}"></image>
@@ -44,29 +73,78 @@
     <view class="change">
     <text @tap="change">换一批</text>
     </view>
+    <view class="raffle">
+    <view>
+      <text class="integral">积分大抽奖</text>
+      </view>
+      <view>
+        <text class="million">👇百万豪礼等你拿👇</text>
+        </view>
+        </view>
+        <view class="start">
+          <text  @tap="start">开始抽奖</text>
+          <text  @tap="pick">领取奖励</text>
+        </view>
+        <view class="award">
+          <image class="awards" src="{{awards}}"></image>
+          </view>
+          <view>
+            <text class="toasts">{{toast}}</text>
+            </view>
 </view>
 </template>
 <script>
 import wepy from 'wepy'
 export default class Index extends wepy.page {
   config = {
-    navigationBarTitleText: '宝马_百科'
+    navigationBarTitleText: '宝马_抽奖活动'
   }
   data = {
     show: true,
     refresh: '../photo/refresh.png',
     bmw1: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508839462112&di=3b91b411f14964f9fc0cfb913b747150&imgtype=0&src=http%3A%2F%2Fpic29.nipic.com%2F20130524%2F9885883_165508898000_2.jpg',
-    bmw: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508839462112&di=0ae0a867f2fd5e0914d12a08b0a5e774&imgtype=0&src=http%3A%2F%2Fpic36.nipic.com%2F20131128%2F9885883_090328830000_2.jpg'
+    bmw: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508839462112&di=0ae0a867f2fd5e0914d12a08b0a5e774&imgtype=0&src=http%3A%2F%2Fpic36.nipic.com%2F20131128%2F9885883_090328830000_2.jpg',
+    numeral: [
+      'http://img4.imgtn.bdimg.com/it/u=3804248273,3060415275&fm=27&gp=0.jpg',
+      'http://a1.ifengimg.com/autoimg/89/56/1745689_3.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509113906430&di=9e721622b2b2c39f425b3edaf49d2292&imgtype=0&src=http%3A%2F%2Fpic23.nipic.com%2F20120913%2F6488038_124557200143_2.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509113906430&di=9e721622b2b2c39f425b3edaf49d2292&imgtype=0&src=http%3A%2F%2Fpic23.nipic.com%2F20120913%2F6488038_124557200143_2.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509113906430&di=9e721622b2b2c39f425b3edaf49d2292&imgtype=0&src=http%3A%2F%2Fpic23.nipic.com%2F20120913%2F6488038_124557200143_2.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509113906430&di=9e721622b2b2c39f425b3edaf49d2292&imgtype=0&src=http%3A%2F%2Fpic23.nipic.com%2F20120913%2F6488038_124557200143_2.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509168569527&di=f8f6b57460af674896bd666d61291c8b&imgtype=0&src=http%3A%2F%2Fpic.qp110.com%2Fnews%2Fpic_tupian%2F2016%2F06%2F20160608100100237.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509168655793&di=1b862042e1e890b63464968b82fcab82&imgtype=0&src=http%3A%2F%2Fimage13-c.poco.cn%2Fmypoco%2Fqing%2F20120707%2F00%2F1554993436041796842_550x393_220.jpg'
+    ],
+    toasts: [
+      '恭喜您获得宝马1系轿车一辆',
+      '恭喜您获得宝马X6越野车一辆',
+      '谢谢惠顾,再接再厉',
+      '谢谢惠顾,再接再厉',
+      '谢谢惠顾,再接再厉',
+      '谢谢惠顾,再接再厉',
+      '恭喜你获得宝马专用轮胎一个',
+      '恭喜您获得宝马蓝牙耳机一个'
+    ],
+    awards: '',
+    interval: null,
+    num: '',
+    index: null,
+    toast: ''
   }
   methods = {
     change() {
       let self = this
       self.show = false
+    },
+    start() {
+      let self = this
+      self.index = Math.floor(Math.random() * 8)
+      console.log(self.index)
+      self.awards = self.numeral[self.index]
+      self.toast = self.toasts[self.index]
+      self.setData({
+        awards: self.numeral[self.index]
+      })
     }
-    // button2() {
-    //   let self = this
-    //   self.show = false
-    // }
   }
   onLoad() {
   }

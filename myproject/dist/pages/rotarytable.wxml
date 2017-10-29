@@ -1,0 +1,5 @@
+
+<view>
+    <view class="one"/>
+    <view><text bindtap="ss">点我</text></view>
+  </view>
