@@ -1,0 +1,63 @@
+<style lang='less'>
+.experience {
+  font-size: 15px;
+  color: black;
+  margin: 0px 28px 0px 28px;
+}
+.head {
+  position: fixed;
+  top: 0;
+  width: 90%;
+  background-color: white;
+}
+.search {
+  position: fixed;
+  right: 10px;
+  width: 23px;
+  height: 23px;
+}
+.advertising {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.border {
+  height: 90px;
+  width: 100%-5px;
+  border: 10px solid #F5F5F5;
+  margin: 35px 0px 0px 0px;
+}
+</style>
+<template>
+<view>
+  <view>
+    <scroll-view class="head" scroll-x="true" style="white-space:nowrap; display: block">
+      <text @tap="experience" class="experience">经历</text>
+      <text @tap="experience" class="experience">热点</text>
+      <text @tap="experience" class="experience">保定</text>
+      <text @tap="experience" class="experience">保养</text>
+      <text @tap="experience" class="experience">省油</text>
+      <image @tap="experience" class="search" src="{{search}}"></image>
+    </scroll-view>
+  </view>
+  <view class="border">
+    <image class="advertising" src="{{advertising}}"></image>
+  </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '服务'
+  }
+  data = {
+    search: '../photo/search.png',
+    advertising: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509352596440&di=ba62bcf7fb114799903b8a969cde9b08&imgtype=0&src=http%3A%2F%2Fpic.xcarimg.com%2Fimg%2Fnews_photo%2F2014%2F04%2F23%2FIrlX6OYFaT3696.jpg'
+  }
+  methods = {}
+  onLoad() {
+  }
+}
+</script>

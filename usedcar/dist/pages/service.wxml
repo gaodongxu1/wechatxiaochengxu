@@ -1,0 +1,16 @@
+
+<view>
+  <view>
+    <scroll-view class="head" scroll-x="true" style="white-space:nowrap; display: block">
+      <text bindtap="experience" class="experience">经历</text>
+      <text bindtap="experience" class="experience">热点</text>
+      <text bindtap="experience" class="experience">保定</text>
+      <text bindtap="experience" class="experience">保养</text>
+      <text bindtap="experience" class="experience">省油</text>
+      <image bindtap="experience" class="search" src="{{search}}"/>
+    </scroll-view>
+  </view>
+  <view class="border">
+    <image class="advertising" src="{{advertising}}"/>
+  </view>
+  </view>

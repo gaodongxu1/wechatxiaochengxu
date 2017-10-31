@@ -1,0 +1,111 @@
+<style lang='less'>
+.individual {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  width: 82px;
+  height: 87px;
+  margin: 9px 1px 10px 1px;
+}
+.individual-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 180px;
+}
+.collect {
+  display: flex;
+  justify-content: space-between;
+}
+.collects {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.border {
+  height: 50px;
+  width: 100%;
+  border: 1px solid #F5F5F5;
+}
+</style>
+<template>
+<view>
+  <view class="individual-layout">
+      <image class="individual" src="{{head}}"></image>
+      <text>{{name}}</text>
+  </view>
+    <view class="collect collects border">
+     <view class="collects"> 
+       <image style="width:22px;height:22px;margin:0px 0px 0px 8px;" src="{{collect}}"></image>
+      <text style="font-size:14px;margin:0px 0px 0px 8px;">我的收藏</text>
+    </view>
+      <view>
+        <image style="width:22px;height:22px;" src="{{right}}"></image>
+      </view>
+    </view>
+    <view class="collect collects">
+     <view class="collects"> 
+       <image style="width:22px;height:22px;margin:0px 0px 0px 8px;" src="{{aboutus}}"></image>
+      <text style="font-size:14px;margin:0px 0px 0px 8px;">关于我们</text>
+    </view>
+      <view>
+        <image style="width:22px;height:22px;" src="{{right}}"></image>
+      </view>
+    </view>
+     <view style="width:100%;height:14px;background-color:#F5F5F5;margin:10px 0px 0px 0px;"></view>
+      <view class="collect collects border">
+     <view class="collects"> 
+       <image style="width:22px;height:22px;margin:0px 0px 0px 8px;" src="{{question}}"></image>
+      <text style="font-size:14px;margin:0px 0px 0px 8px;">问题反馈</text>
+    </view>
+      <view>
+        <image style="width:22px;height:22px;" src="{{right}}"></image>
+      </view>
+    </view>
+    <view class="collect collects">
+     <view class="collects"> 
+       <image style="width:22px;height:22px;margin:0px 0px 0px 8px;" src="{{contact}}"></image>
+      <text style="font-size:14px;margin:0px 0px 0px 8px;">联系我们</text>
+    </view>
+      <view>
+        <image style="width:22px;height:22px;" src="{{right}}"></image>
+      </view>
+    </view>
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '个人中心'
+  }
+  data = {
+    collect: '../photo/collect.png',
+    right: '../photo/right.png',
+    aboutus: '../photo/aboutus.png',
+    contact: '../photo/contact.png',
+    question: '../photo/question.png'
+  }
+  methods = {}
+  onLoad() {
+    let self = this
+    wepy.getUserInfo({
+      success: function(res) {
+        self.name = res.userInfo.nickName
+        self.head = res.userInfo.avatarUrl
+        self.setData({
+          head: res.userInfo.avatarUrl,
+          name: res.userInfo.nickName
+        })
+      }
+    })
+  }
+}
+</script>

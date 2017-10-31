@@ -1,0 +1,83 @@
+
+.headings {
+  display: flex;
+  justify-content: center;
+}
+.select {
+  font-size: 15px;
+  color: grey;
+  margin: 10px 10px 8px 10px;
+}
+.search {
+  width: 23px;
+  height: 23px;
+  margin: 6px 5px 0px 0px;
+}
+.headsearch {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+}
+.line {
+  height: 2px;
+  width: 30px;
+}
+.line-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.advertising {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.border {
+  height: 90px;
+  width: 100%-7px;
+  border: 10px solid #F5F5F5;
+  margin: 35px 0px 0px 0px;
+}
+.caricon {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background-color: grey;
+}
+.toyota {
+  font-size: 13px;
+  color: black;
+}
+.icontoyota {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 33px 10px 33px;
+}
+.recommend {
+  width: 100%;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testdrive {
+  width: 46px;
+  height: 20px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: 13px 0px 0px 13px;
+}
+.collect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

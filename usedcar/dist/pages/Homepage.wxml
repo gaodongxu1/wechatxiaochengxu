@@ -1,0 +1,136 @@
+
+<view style="background-colo:#F5F5F5;">
+  <view class="border">
+    <image class="advertising" src="{{advertising}}"/>
+  </view>
+  <scroll-view scroll-x style="width: 100%">
+    <view style="display: flex;margin:10px 17px 20px 17px;">
+      <view class="icontoyota">
+        <view>
+          <image class="caricon" src="{{hyundai}}"/>
+        </view>
+        <view>
+          <text class="toyota">现代</text>
+        </view>
+      </view>
+      <view class="icontoyota">
+        <view>
+          <image class="caricon" src="{{toyota}}"/>
+        </view>
+        <view>
+          <text class="toyota">丰田</text>
+        </view>
+      </view>
+      <view class="icontoyota">
+        <view>
+          <image class="caricon" src="{{dasauto}}"/>
+        </view>
+        <view>
+          <text class="toyota">大众</text>
+        </view>
+      </view>
+      <view class="icontoyota">
+        <view>
+          <image class="caricon" src="{{honda}}"/>
+        </view>
+        <view>
+          <text class="toyota">本田</text>
+        </view>
+      </view>
+      <view class="icontoyota">
+        <view>
+          <image class="caricon" src="{{benz}}"/>
+        </view>
+        <view>
+          <text class="toyota">奔驰</text>
+        </view>
+      </view>
+      <view class="icontoyota">
+        <view>
+          <image class="caricon" src="{{bmw}}"/>
+        </view>
+        <view>
+          <text class="toyota">宝马</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view style="width:100%;height:14px;background-color:#F5F5F5;margin:10px 0px 0px 0px;"/>
+  <view class="recommend">
+    <text style="font-size:15px;color:black">专业推荐</text>
+    <text style="font-size:15px;color:grey">RECOMMEND</text>
+    </view>
+    <view style="display:flex;justify-content: center;"><view>
+    <view class="testdrive">
+      <text style="font-size:10px;color:white;" bindtap="testdrive">试驾测评</text>
+      </view>
+        <image style="width:180px;height:200px;" src="{{testdrive}}"/>
+      </view>
+      <view>
+    <view class="testdrive">
+      <text style="font-size:10px;color:white;">最具逼格</text>
+      </view>
+        <image style="width:180px;height:200px;" src="{{Coupe}}"/>
+      </view>
+      </view>
+      <view style="width:100%;height:14px;background-color:#F5F5F5;margin:3px 0px 0px 0px;"/>
+      <view class="recommend">
+    <text style="font-size:15px;color:black">精心挑选</text>
+    <text style="font-size:15px;color:grey">SELECT</text>
+    </view>
+    <view style="display:flex; justify-content: center;">
+      <image style="width:360px;height:175px" src="{{AstonMartin}}"/>
+      </view>
+      <view style="display:flex;">
+        <view class="collect">
+      <view>
+        <text style="font-size:15px;margin:6px 0px 4px 15px;">阿斯顿·马丁DB9</text>
+        </view>
+        <view>
+          <text style="font-size:13px;margin:6px 0px 4px 15px;">厂家指导价:</text>
+          <text style="font-size:10px;margin:6px 0px 4px 5px;color:red">359-498万</text>
+          </view>
+          </view>
+          <view class="collect">
+           <view> <image style="width:21px;height:21px;margin:8px 0px 0px 180px" src="{{collect}}"/></view>
+           <view> <text style="font-size:12px;margin:0px 0px 7px 180px">收藏</text></view>
+            </view>
+            </view>
+      <view style="display:flex; justify-content: center;">
+           <image style="width:360px;height:175px" src="{{horses}}"/>
+      </view>
+      <view style="display:flex;">
+        <view class="collect">
+      <view>
+         <text style="font-size:15px;margin:6px 0px 4px 15px;">福特·野马</text>
+      </view>
+      <view>
+          <text style="font-size:13px;margin:6px 0px 4px 15px;">厂家指导价:</text>
+          <text style="font-size:10px;margin:6px 0px 4px 5px;color:red">35-49万</text>
+      </view>
+      </view>
+        <view class="collect">
+          <view> <image style="width:21px;height:21px;margin:8px 0px 0px 195px" src="{{collect}}"/></view>
+          <view> <text style="font-size:12px;margin:0px 0px 0px 195px">收藏</text></view>
+        </view>
+      </view>
+      <view class="headsearch">
+    <view class="headings">
+      <view class="line-head">
+        <text class="select" bindtap="select" style="color:{{colorselect}}">我要选车</text>
+        <text class="line" style="background-color:{{lineselect}}"/>
+      </view>
+      <view class="line-head">
+        <text class="select" bindtap="like" style="color:{{colorlike}}">最受欢迎</text>
+        <text class="line" style="background-color:{{linelike}}"/>
+      </view>
+      <view class="line-head">
+        <text class="select" bindtap="shelves" style="color:{{colorshelves}}">最新上架</text>
+        <text class="line" style="background-color:{{lineshelves}}"/>
+      </view>
+    </view>
+    <view>
+      <image class="search" src="{{search}}"/>
+    </view>
+  </view>
+</view>
