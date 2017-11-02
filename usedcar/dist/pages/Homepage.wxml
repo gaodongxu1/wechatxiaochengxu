@@ -59,9 +59,10 @@
     <text style="font-size:15px;color:black">专业推荐</text>
     <text style="font-size:15px;color:grey">RECOMMEND</text>
     </view>
-    <view style="display:flex;justify-content: center;"><view>
+    <view style="display:flex;justify-content: center;">
+    <view bindtap="driver">
     <view class="testdrive">
-      <text style="font-size:10px;color:white;" bindtap="driver">试驾测评</text>
+      <text style="font-size:10px;color:white;">试驾测评</text>
       </view>
         <image style="width:180px;height:200px;" src="{{testdrive}}"/>
       </view>

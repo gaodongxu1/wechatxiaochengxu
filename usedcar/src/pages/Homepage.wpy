@@ -152,9 +152,10 @@
     <text style="font-size:15px;color:black">专业推荐</text>
     <text style="font-size:15px;color:grey">RECOMMEND</text>
     </view>
-    <view style="display:flex;justify-content: center;"><view>
+    <view style="display:flex;justify-content: center;">
+    <view @tap="driver">
     <view class="testdrive">
-      <text style="font-size:10px;color:white;" @tap="driver">试驾测评</text>
+      <text style="font-size:10px;color:white;">试驾测评</text>
       </view>
         <image style="width:180px;height:200px;" src="{{testdrive}}"/>
       </view>
@@ -270,15 +271,16 @@ export default class Index extends wepy.page {
   }
   onLoad() {
     let self = this
+    console.log('res.data111')
     wepy.request({
       url: 'http://127.0.0.1:7001/get',
-      method: 'get',
       success: function (res) {
         self.Array = res.data
         self.setData({
           Array: res.data
         })
         console.log(res.data, 'res.data')
+        console.log(self.Array, 'Array')
       }
     })
   }

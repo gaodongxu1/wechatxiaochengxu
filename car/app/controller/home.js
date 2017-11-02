@@ -21,6 +21,16 @@ module.exports = app => {
     * garagecreate() {
       this.ctx.body = yield this.service.collectcar.garagecreate(this.ctx.request.body);
     }
+    * videoupdate() {
+      this.ctx.body = yield this.service.collectcar.videoupdate(this.ctx.request.body);
+    }
+    * videoselect() {
+      console.log(this.ctx.request.body)
+      this.ctx.body = yield this.service.collectcar.videoselect(this.ctx.request.body);
+    }
+    * videocreate() {
+      this.ctx.body = yield this.service.collectcar.videocreate(this.ctx.request.body);
+    }
   }
   return HomeController;
 };
