@@ -1,4 +1,7 @@
 <style less="lang">
+.background {
+  background-color: #F5F5F5;
+}
 .headings {
   display: flex;
   justify-content: center;
@@ -6,7 +9,7 @@
 .select {
   font-size: 15px;
   color: grey;
-  margin: 10px 10px 8px 10px;
+  margin: 10px 18px 8px 18px;
 }
 .search {
   width: 23px;
@@ -56,18 +59,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px 33px 10px 33px;
+  margin: 10px 20px 10px 20px;
 }
 .recommend {
+  background-color: white;
   width: 100%;
-  height: 42px;
+  height: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px 0px 0px 0px;
 }
 .testdrive {
-  width: 46px;
-  height: 20px;
+  width: 49px;
+  height: 26px;
   background-color: black;
   display: flex;
   justify-content: center;
@@ -78,17 +83,21 @@
 .collect {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+.position {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 6px 0px 6px;
   align-items: center;
 }
 </style>
 <template>
-<view style="background-colo:#F5F5F5;">
+<view class="background">
   <view class="border">
     <image class="advertising" src="{{advertising}}"></image>
   </view>
-  <scroll-view scroll-x style="width: 100%">
-    <view style="display: flex;margin:10px 17px 20px 17px;">
+  <scroll-view scroll-x style="width: 100%;background-color: white;">
+    <view style="display: flex;margin:0px 17px 0px 17px;">
       <view class="icontoyota">
         <view>
           <image class="caricon" src="{{hyundai}}"></image>
@@ -139,14 +148,13 @@
       </view>
     </view>
   </scroll-view>
-  <view style="width:100%;height:14px;background-color:#F5F5F5;margin:10px 0px 0px 0px;"></view>
   <view class="recommend">
     <text style="font-size:15px;color:black">专业推荐</text>
     <text style="font-size:15px;color:grey">RECOMMEND</text>
     </view>
     <view style="display:flex;justify-content: center;"><view>
     <view class="testdrive">
-      <text style="font-size:10px;color:white;" @tap="testdrive">试驾测评</text>
+      <text style="font-size:10px;color:white;" @tap="driver">试驾测评</text>
       </view>
         <image style="width:180px;height:200px;" src="{{testdrive}}"/>
       </view>
@@ -157,47 +165,28 @@
         <image style="width:180px;height:200px;" src="{{Coupe}}"/>
       </view>
       </view>
-      <view style="width:100%;height:14px;background-color:#F5F5F5;margin:3px 0px 0px 0px;"></view>
       <view class="recommend">
     <text style="font-size:15px;color:black">精心挑选</text>
     <text style="font-size:15px;color:grey">SELECT</text>
     </view>
+    <block wx:for="{{Array}}" wx:key="index">
     <view style="display:flex; justify-content: center;">
-      <image style="width:360px;height:175px" src="{{AstonMartin}}"></image>
+      <image style="width:360px;height:175px" src="{{item.address}}"></image>
       </view>
-      <view style="display:flex;">
+      <view class="position">
         <view class="collect">
-      <view>
-        <text style="font-size:15px;margin:6px 0px 4px 15px;">阿斯顿·马丁DB9</text>
-        </view>
-        <view>
-          <text style="font-size:13px;margin:6px 0px 4px 15px;">厂家指导价:</text>
-          <text style="font-size:10px;margin:6px 0px 4px 5px;color:red">359-498万</text>
+        <text style="font-size:15px;">{{item.name}}</text>
+        <view style="display:flex;flex-direction:row">
+          <text style="font-size:13px;">厂家指导价:</text>
+          <text style="font-size:13px;color:red">¥{{item.price}}</text>
           </view>
           </view>
-          <view class="collect" >
-           <view> <image style="width:21px;height:21px;margin:8px 0px 0px 180px" src="{{collect}}"></image></view>
-           <view> <text style="font-size:12px;margin:0px 0px 7px 180px">收藏</text></view>
+          <view class="collect" > 
+             <image @tap="coleect" style="width:21px;height:21px;" src="{{collect}}"></image>
             </view>
             </view>
-      <view style="display:flex; justify-content: center;">
-           <image style="width:360px;height:175px" src="{{horses}}"></image>
-      </view>
-      <view style="display:flex;">
-        <view class="collect">
-      <view>
-         <text style="font-size:15px;margin:6px 0px 4px 15px;">福特·野马</text>
-      </view>
-      <view>
-          <text style="font-size:13px;margin:6px 0px 4px 15px;">厂家指导价:</text>
-          <text style="font-size:10px;margin:6px 0px 4px 5px;color:red">35-49万</text>
-      </view>
-      </view>
-        <view class="collect" >
-          <view> <image style="width:21px;height:21px;margin:8px 0px 0px 195px" src="{{collect}}"></image></view>
-          <view> <text style="font-size:12px;margin:0px 0px 0px 195px">收藏</text></view>
-        </view>
-      </view>
+            <view style="width:100%;height:10px;background-color:white;"></view>
+      </block>      
       <view class="headsearch">
     <view class="headings">
       <view class="line-head">
@@ -226,6 +215,7 @@ export default class Index extends wepy.page {
     navigationBarTitleText: '爱车族'
   };
   data = {
+    Array: [],
     search: '../photo/search.png',
     colorselect: 'black',
     colorlike: 'grey',
@@ -242,9 +232,7 @@ export default class Index extends wepy.page {
     benz: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509357800437&di=f57e43624fa974e81443f613ae352fc9&imgtype=0&src=http%3A%2F%2Fpic2.ooopic.com%2F11%2F36%2F12%2F51bOOOPICb9.jpg',
     Coupe: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=682775739,1835787007&fm=27&gp=0.jpg',
     testdrive: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509968256&di=df4201ad1adfe861ade0b8cf89e6f870&imgtype=jpg&er=1&src=http%3A%2F%2Fpic14.nipic.com%2F20110529%2F7094573_094739799000_2.jpg',
-    AstonMartin: 'http://img3.imgtn.bdimg.com/it/u=3953604106,2693623020&fm=214&gp=0.jpg',
-    collect: '../photo/collect.png',
-    horses: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509436819509&di=743f86cbf4e954799c59f6d7af7b66c2&imgtype=0&src=http%3A%2F%2Fdesk.fd.zol-img.com.cn%2Fg5%2FM00%2F09%2F03%2FChMkJlbmVsKICF6RAAg6D-eWwcEAANjggGFDFAACDon386.jpg'
+    collect: '../photo/collect.png'
   };
   methods = {
     select() {
@@ -273,8 +261,26 @@ export default class Index extends wepy.page {
       self.lineselect = 'white'
       self.linelike = 'white'
       self.lineshelves = 'black'
+    },
+    driver() {
+      wepy.navigateTo({
+        url: './driver'
+      })
     }
-  };
-  onLoad() {}
+  }
+  onLoad() {
+    let self = this
+    wepy.request({
+      url: 'http://127.0.0.1:7001/get',
+      method: 'get',
+      success: function (res) {
+        self.Array = res.data
+        self.setData({
+          Array: res.data
+        })
+        console.log(res.data, 'res.data')
+      }
+    })
+  }
 }
 </script>

@@ -1,0 +1,25 @@
+
+.background {
+  background-color: #f5f5f5;
+}
+.slogan {
+  font-size:13px;
+  color:black;
+  margin: 0px 30px 0px 0px;
+}
+.video {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px 0px 0px;
+}
+.videos {
+  height: 200px;
+  width: 350px;
+}
+.position {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 30px 0px 20px;
+  align-items: center;
+  font-size:13px;
+}

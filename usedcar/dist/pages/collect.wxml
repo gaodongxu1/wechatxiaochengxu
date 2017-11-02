@@ -1,0 +1,32 @@
+
+<view class="background" style="height: {{height}}px">
+  <view class="collect">
+    <image bindtap="select" style="width:19px;height:19px;" src="{{round}}"/>
+    <text style="font-size:14px;margin:0px 5px 0px 10px;">全部收藏</text>
+    </view>
+    <view class="border">
+      <image bindtap="select" style="width:19px;height:19px;margin:0px 5px 0px 10px;" src="{{round}}"/>
+      <image style="width:140px;height:125px;margin:0px 5px 0px 10px;" src="{{AstonMartin}}"/>
+      <view style="display:flex;flex-direction: column;">
+      <text style="font-size:15px;margin:0px 0px 15px 5px;">阿斯顿·马丁DB9</text>
+      <view style="display:flex;">
+          <text style="font-size:14px;margin:0px 0px 10px 5px;">厂家指导价:</text>
+          <text style="font-size:14px;color:red">¥359-498万</text>
+          </view>
+          </view>
+      </view>
+      <view class="border">
+      <image bindtap="select" style="width:19px;height:19px;margin:0px 5px 0px 10px;" src="{{round}}"/>
+      <image style="width:140px;height:125px;margin:0px 5px 0px 10px;" src="{{AstonMartin}}"/>
+      <view style="display:flex;flex-direction: column;">
+      <text style="font-size:15px;margin:0px 0px 15px 5px;">阿斯顿·马丁DB9</text>
+      <view style="display:flex;">
+          <text style="font-size:14px;margin:0px 0px 10px 5px;">厂家指导价:</text>
+          <text style="font-size:14px;color:red">¥359-498万</text>
+          </view>
+          </view>
+      </view>
+      <view class="moved">
+        <text bindtap="move">移出收藏</text>
+      </view>
+  </view>

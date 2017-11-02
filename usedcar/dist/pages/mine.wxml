@@ -5,9 +5,9 @@
       <text>{{name}}</text>
   </view>
     <view class="collect collects border">
-     <view class="collects"> 
+     <view bindtap="collect" class="collects"> 
        <image style="width:22px;height:22px;margin:0px 0px 0px 8px;" src="{{collect}}"/>
-      <text style="font-size:14px;margin:0px 0px 0px 8px;">我的收藏</text>
+      <text bindtap="collect" style="font-size:14px;margin:0px 0px 0px 8px;">我的收藏</text>
     </view>
       <view>
         <image style="width:22px;height:22px;" src="{{right}}"/>

@@ -1,0 +1,15 @@
+
+<view>
+  <!-- <block> -->
+  <view>
+  <text class="slogan">东风雷诺--创新任性科技，完美选择</text>
+  <view class="video">
+      <video bindtap="play" class="videos" src="http://ips.ifeng.com/video19.ifeng.com/video09/2017/05/19/3975179-102-009-222732.mp4?vid=10d92ba2-fd62-4ea3-9d6d-1f2dddfba8ef&uid=1508135868992_ffpq9i7807&from=v_Free&pver=vHTML5Player_v2.0.0&sver=&se=%E5%A8%B1%E4%B9%90%E8%81%9A%E7%84%A6&cat=114-115&ptype=114&platform=pc&sourceType=h5&dt=1494676833000&gid=fkMyUV8j5x53&sign=dbd7e3b65e6c7e91874c401c6384aa73&tm=1508135870073"/>
+    </view>
+    <view class="position">
+    <text>2017-11-3</text>
+    <text>0次播放</text>
+    </view>
+  </view>
+  <!-- <block> -->
+  </view>
