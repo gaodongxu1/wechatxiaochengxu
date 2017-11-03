@@ -3,7 +3,6 @@
   background-color: #f5f5f5;
 }
 .collect {
-  /* background-color: grey; */
   width: 100%;
   height: 38px;
   display: flex;
@@ -33,10 +32,24 @@
 <template>
 <view class="background" style="height: {{height}}px">
   <view class="collect">
-    <image @tap="select" style="width:19px;height:19px;" src="{{round}}"></image>
+    <image @tap="select" style="width:19px;height:19px;" src="{{elect}}"></image>
     <text style="font-size:14px;margin:0px 5px 0px 10px;">全部收藏</text>
     </view>
+    <block wx:for="{{Array}}" wx:key="index">
     <view class="border">
+      <icon @tap="select" wx:if="{{item.elect}}" id="{{index}}" type="success_circle" color="tomato" style="width:19px;height:19px;margin:0px 5px 0px 10px;" src="{{item.elect}}"></icon>
+      <icon @tap="select" wx:else type="circle" color="grey" id="{{index}}" style="width:19px;height:19px;margin:0px 5px 0px 10px;" src="{{item.elect}}"></icon>
+      <image style="width:140px;height:125px;margin:0px 5px 0px 10px;" src="{{item.address}}"></image>
+      <view style="display:flex;flex-direction: column;">
+      <text style="font-size:15px;margin:0px 0px 15px 5px;">{{item.name}}</text>
+      <view style="display:flex;">
+          <text style="font-size:14px;margin:0px 0px 10px 5px;">厂家指导价:</text>
+          <text style="font-size:14px;color:red">¥{{item.price}}</text>
+          </view>
+          </view>
+      </view>
+      </block>
+      <!-- <view class="border">
       <image @tap="select" style="width:19px;height:19px;margin:0px 5px 0px 10px;" src="{{round}}"></image>
       <image style="width:140px;height:125px;margin:0px 5px 0px 10px;" src="{{AstonMartin}}"></image>
       <view style="display:flex;flex-direction: column;">
@@ -46,21 +59,11 @@
           <text style="font-size:14px;color:red">¥359-498万</text>
           </view>
           </view>
-      </view>
-      <view class="border">
-      <image @tap="select" style="width:19px;height:19px;margin:0px 5px 0px 10px;" src="{{round}}"></image>
-      <image style="width:140px;height:125px;margin:0px 5px 0px 10px;" src="{{AstonMartin}}"></image>
-      <view style="display:flex;flex-direction: column;">
-      <text style="font-size:15px;margin:0px 0px 15px 5px;">阿斯顿·马丁DB9</text>
-      <view style="display:flex;">
-          <text style="font-size:14px;margin:0px 0px 10px 5px;">厂家指导价:</text>
-          <text style="font-size:14px;color:red">¥359-498万</text>
-          </view>
-          </view>
-      </view>
+      </view> -->
       <view class="moved">
         <text @tap="move">移出收藏</text>
       </view>
+      </block>
   </view>
 </template>
 <script>
@@ -70,19 +73,59 @@ export default class Index extends wepy.page {
     navigationBarTitleText: '我的收藏'
   };
   data = {
-    round: '../photo/round.png',
+    Array: [],
     AstonMartin:
       'http://img3.imgtn.bdimg.com/it/u=3953604106,2693623020&fm=214&gp=0.jpg',
     height: 0,
-    width: 0
+    width: 0,
+    elect: '../photo/round.png'
   };
-  methods = {};
+  methods = {
+    select(e) {
+      let self = this
+      const index = e.currentTarget.id
+      let Array = self.Array
+      const elect = Array[index].elect
+      Array[index].elect = !elect
+      self.setData({
+        Array: Array
+      })
+    },
+    move(e) {
+      let self = this
+      let selected = []
+      // const index = e.currentTarget.id
+      for (let i = 0; i < self.Array.length; i++) {
+        if (self.Array[i].elect) {
+          selected.push(self.Array[i].id)
+        }
+      }
+      wepy.request({
+        url: 'http://127.0.0.1:7001/delete',
+        method: 'POST',
+        data: {
+          id: selected
+        }
+      })
+    }
+  };
   onLoad() {
     let self = this
     wepy.getSystemInfo({
       success(res) {
         self.height = res.windowHeight
         self.width = res.windowWidth
+      }
+    })
+    wepy.request({
+      url: 'http://127.0.0.1:7001/select',
+      method: 'POST',
+      success: function (res) {
+        self.Array = res.data
+        console.log(res.data, 'res.data')
+        self.setData({
+          Array: res.data
+        })
       }
     })
   }

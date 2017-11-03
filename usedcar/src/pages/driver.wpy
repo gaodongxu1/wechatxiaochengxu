@@ -36,7 +36,7 @@
   <view class="vidback">
   <text class="slogan">{{item.slogan}}</text>
   <view class="video">
-      <video @tap="play" class="videos" data-index="{{index}}" src="{{item.videoaddress}}"></video>
+      <video @tap="play" class="videos" id="{{index}}" src="{{item.videoaddress}}"></video>
     </view>
     <view class="position">
     <text>{{item.creat_at}}</text>
@@ -60,12 +60,12 @@ export default class Index extends wepy.page {
   }
   methods = {
     play (e) {
-      const index = e.currentTarget.dataset.index
+      // console.log(e, 'aaaaaaa')
+      const index = e.currentTarget.id
       let self = this
       let a = self.Array[index].videoplay
       console.log(self.Array[0].videoplay, '1')
       a = a + 1
-      console.log(a, '2')
       wepy.request({
         url: 'http://127.0.0.1:7001/upvideo',
         method: 'POST',
@@ -73,13 +73,6 @@ export default class Index extends wepy.page {
           id: self.Array[index].id,
           videoplay: a
         }
-        // success: function (res) {
-        //   res.data = self.Array
-        //   self.setData({
-        //     Array: res.data.videoplay
-        //   })
-        //   console.log(res.data, 'res.data')
-        // }
       })
     }
   }
@@ -93,7 +86,7 @@ export default class Index extends wepy.page {
     })
     wepy.request({
       url: 'http://127.0.0.1:7001/getvideo',
-      // method: 'GET',
+      method: 'POST',
       success: function (res) {
         self.Array = res.data
         self.setData({

@@ -4,7 +4,7 @@
   <view class="vidback">
   <text class="slogan">{{item.slogan}}</text>
   <view class="video">
-      <video bindtap="play" class="videos" data-index="{{index}}" src="{{item.videoaddress}}"/>
+      <video bindtap="play" class="videos" id="{{index}}" src="{{item.videoaddress}}"/>
     </view>
     <view class="position">
     <text>{{item.creat_at}}</text>

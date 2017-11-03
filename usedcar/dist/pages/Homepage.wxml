@@ -90,7 +90,7 @@
           </view>
           </view>
           <view class="collect"> 
-             <image bindtap="coleect" style="width:21px;height:21px;" src="{{collect}}"/>
+             <image bindtap="coleect" id="{{index}}" style="width:21px;height:21px;" src="{{collect}}"/>
             </view>
             </view>
             <view style="width:100%;height:10px;background-color:white;"/>

@@ -183,7 +183,7 @@
           </view>
           </view>
           <view class="collect" > 
-             <image @tap="coleect" style="width:21px;height:21px;" src="{{collect}}"></image>
+             <image @tap="coleect" id="{{index}}" style="width:21px;height:21px;" src="{{collect}}"></image>
             </view>
             </view>
             <view style="width:100%;height:10px;background-color:white;"></view>
@@ -216,7 +216,7 @@ export default class Index extends wepy.page {
     navigationBarTitleText: '爱车族'
   };
   data = {
-    Array: [],
+    Array: {},
     search: '../photo/search.png',
     colorselect: 'black',
     colorlike: 'grey',
@@ -267,13 +267,30 @@ export default class Index extends wepy.page {
       wepy.navigateTo({
         url: './driver'
       })
+    },
+    coleect(e) {
+      let self = this
+      console.log(e)
+      const index = e.currentTarget.id
+      wepy.request({
+        url: 'http://127.0.0.1:7001/create',
+        method: 'POST',
+        data: {
+          name: self.Array[index].name,
+          address: self.Array[index].address,
+          price: self.Array[index].price
+          // elect: self.Array[index].elect
+        }
+      })
     }
+
   }
   onLoad() {
     let self = this
     console.log('res.data111')
     wepy.request({
       url: 'http://127.0.0.1:7001/get',
+      method: 'POST',
       success: function (res) {
         self.Array = res.data
         self.setData({

@@ -25,7 +25,11 @@ module.exports = app => {
     }
     * collectcardelete(param) {
       try {
-        yield app.mysql.delete('collectcar', param);
+        for (let i = 0; i < param.id.length; i++) {
+          yield app.mysql.delete('collectcar', {
+            id: param.id[i],
+          });
+        }
       } catch (e) {
         this.ctx.logger.error(e);
         this.ctx.logger.warn();

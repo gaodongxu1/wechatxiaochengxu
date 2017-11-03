@@ -12,6 +12,7 @@ module.exports = app => {
         table.string('name').notNullable().defaultTo('');
         table.string('address', 1024).notNullable().defaultTo('');
         table.string('price').notNullable().defaultTo('');
+        table.boolean('elect').notNullable().defaultTo(false);
         table.charset('utf8');
       });
       yield app.mysql.query(userSchema.toString());
