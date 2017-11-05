@@ -2,15 +2,48 @@
 <view>
   <view>
     <scroll-view class="head" scroll-x="true" style="white-space:nowrap; display: block">
-      <text bindtap="experience" class="experience">经历</text>
+      <!-- <text bindtap="experience" class="experience">经历</text>
       <text bindtap="experience" class="experience">热点</text>
       <text bindtap="experience" class="experience">保定</text>
       <text bindtap="experience" class="experience">保养</text>
       <text bindtap="experience" class="experience">省油</text>
-      <image bindtap="experience" class="search" src="{{search}}"/>
-    </scroll-view>
+      <image bindtap="experience" class="search" src="{{search}}"></image> -->
+      <view class="experience">
+          <view class="experience"  wx:for="{{tab}}" wx:key="index" id="{{index}}" bindtap="tab">
+            <text class="text-class" style="color: {{index == service ? 'black' : 'grey'}}; border-botto: 3px solid {{index == homepage ? 'black' : 'white'}}">{{item}}</text>
+          </view>
+    
+     <view>
+      <image class="search" src="{{search}}"/>
+    </view>
   </view>
   <view class="border">
     <image class="advertising" src="{{advertising}}"/>
   </view>
-  </view>
+  <view>
+       <textarea bindblur="bindTextAreaBlur" auto-height placeholder="自动变高"/>
+      </view>
+  
+
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '服务'
+  }
+  data = {
+    tab: ['经历', '热点', '保定', '保养', '生活'],
+    service: 0,
+    search: '../photo/search.png',
+    advertising: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509352596440&di=ba62bcf7fb114799903b8a969cde9b08&imgtype=0&src=http%3A%2F%2Fpic.xcarimg.com%2Fimg%2Fnews_photo%2F2014%2F04%2F23%2FIrlX6OYFaT3696.jpg'
+  }
+  methods = {
+    tab (e) {
+      let self = this
+      self.service = e.currentTarget.id
+    }
+  }
+  onLoad() {
+  }
+}
+</script></scroll-view></view></view>

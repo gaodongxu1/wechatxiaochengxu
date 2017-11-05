@@ -74,11 +74,11 @@ export default class Index extends wepy.page {
   };
   data = {
     Array: [],
+    elect: '../photo/round.png',
     AstonMartin:
       'http://img3.imgtn.bdimg.com/it/u=3953604106,2693623020&fm=214&gp=0.jpg',
     height: 0,
-    width: 0,
-    elect: '../photo/round.png'
+    width: 0
   };
   methods = {
     select(e) {
@@ -94,7 +94,6 @@ export default class Index extends wepy.page {
     move(e) {
       let self = this
       let selected = []
-      // const index = e.currentTarget.id
       for (let i = 0; i < self.Array.length; i++) {
         if (self.Array[i].elect) {
           selected.push(self.Array[i].id)
@@ -107,7 +106,19 @@ export default class Index extends wepy.page {
           id: selected
         }
       })
-    }
+      wepy.request({
+        url: 'http://127.0.0.1:7001/select',
+        method: 'POST',
+        success: function (res) {
+          self.Array = res.data
+          console.log(res.data, 'res.data')
+          self.setData({
+            Array: res.data
+          })
+        }
+      })
+    },
+    zoom() {}
   };
   onLoad() {
     let self = this

@@ -1,4 +1,15 @@
 <style less="lang">
+.view {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0px 0px 0px;
+}
+.text-class {
+  width: 60px;
+}
 .background {
   background-color: #F5F5F5;
 }
@@ -9,7 +20,7 @@
 .select {
   font-size: 15px;
   color: grey;
-  margin: 10px 18px 8px 18px;
+  margin: 10px 18px 0px 18px;
 }
 .search {
   width: 23px;
@@ -93,6 +104,7 @@
 </style>
 <template>
 <view class="background">
+  <view wx:if="{{homepage == 0}}">
   <view class="border">
     <image class="advertising" src="{{advertising}}"></image>
   </view>
@@ -170,6 +182,7 @@
     <text style="font-size:15px;color:black">精心挑选</text>
     <text style="font-size:15px;color:grey">SELECT</text>
     </view>
+    <view>
     <block wx:for="{{Array}}" wx:key="index">
     <view style="display:flex; justify-content: center;">
       <image style="width:360px;height:175px" src="{{item.address}}"></image>
@@ -187,26 +200,45 @@
             </view>
             </view>
             <view style="width:100%;height:10px;background-color:white;"></view>
-      </block>      
-      <view class="headsearch">
-    <view class="headings">
-      <view class="line-head">
-        <text class="select" @tap="select" style="color:{{colorselect}}">我要选车</text>
-        <text class="line" style="background-color:{{lineselect}}"></text>
+      </block>
       </view>
-      <view class="line-head">
-        <text class="select" @tap="like" style="color:{{colorlike}}">最受欢迎</text>
-        <text class="line" style="background-color:{{linelike}}"></text>
       </view>
-      <view class="line-head">
-        <text class="select" @tap="shelves" style="color:{{colorshelves}}">最新上架</text>
-        <text class="line" style="background-color:{{lineshelves}}"></text>
+      <view wx:elif="{{homepage == 1}}">
+      <view class="view">
+        <text>谢谢惠顾</text>
       </view>
-    </view>
-    <view>
+        </view>
+        <view wx:if="{{homepage == 2}}">
+          <view>
+    <block wx:for="{{Array}}" wx:key="index">
+    <view style="display:flex; justify-content: center;">
+      <image style="width:360px;height:175px" src="{{item.address}}"></image>
+      </view>
+      <view class="position">
+        <view class="collect">
+        <text style="font-size:15px;">{{item.name}}</text>
+        <view style="display:flex;flex-direction:row">
+          <text style="font-size:13px;">厂家指导价:</text>
+          <text style="font-size:13px;color:red">¥{{item.price}}</text>
+          </view>
+          </view>
+          <view class="collect" > 
+             <image @tap="coleect" id="{{index}}" style="width:21px;height:21px;" src="{{collect}}"></image>
+            </view>
+            </view>
+            <view style="width:100%;height:10px;background-color:white;"></view>
+      </block>
+      </view>
+          </view>
+        <view class="headsearch">
+          <view class="select" wx:for="{{tab}}" wx:key="index" id="{{index}}" @tap="tab">
+            <text class="text-class" style="color: {{index == homepage ? 'black' : 'grey'}}; border-bottom: 3px solid {{index == homepage ? 'black' : 'white'}}">{{item}}</text>
+          </view>
+          <view>
       <image class="search" src="{{search}}"></image>
     </view>
-  </view>
+        </view>
+</view>
 </view>
 </template>
 <script>
@@ -216,7 +248,10 @@ export default class Index extends wepy.page {
     navigationBarTitleText: '爱车族'
   };
   data = {
-    Array: {},
+    tab: ['我要选车', '最受欢迎', '最新上架'],
+    homepage: 0,
+    Array: [],
+    array: [],
     search: '../photo/search.png',
     colorselect: 'black',
     colorlike: 'grey',
@@ -236,32 +271,12 @@ export default class Index extends wepy.page {
     collect: '../photo/collect.png'
   };
   methods = {
-    select() {
+    tab(e) {
       let self = this
-      self.colorselect = 'black'
-      self.colorlike = 'grey'
-      self.colorshelves = 'grey'
-      self.lineselect = 'black'
-      self.linelike = 'white'
-      self.lineshelves = 'white'
-    },
-    like() {
-      let self = this
-      self.colorselect = 'grey'
-      self.colorlike = 'black'
-      self.colorshelves = 'grey'
-      self.lineselect = 'white'
-      self.linelike = 'black'
-      self.lineshelves = 'white'
-    },
-    shelves() {
-      let self = this
-      self.colorselect = 'grey'
-      self.colorlike = 'grey'
-      self.colorshelves = 'black'
-      self.lineselect = 'white'
-      self.linelike = 'white'
-      self.lineshelves = 'black'
+      self.homepage = e.currentTarget.id
+      var where = e.currentTarget.id
+      console.log(self.homepage, 'aaaaa')
+      console.log(self.tab[where], 'bbbbbb')
     },
     driver() {
       wepy.navigateTo({
@@ -279,15 +294,14 @@ export default class Index extends wepy.page {
           name: self.Array[index].name,
           address: self.Array[index].address,
           price: self.Array[index].price
-          // elect: self.Array[index].elect
         }
       })
     }
-
   }
   onLoad() {
     let self = this
     console.log('res.data111')
+    // self.array = self.Array[3]
     wepy.request({
       url: 'http://127.0.0.1:7001/get',
       method: 'POST',

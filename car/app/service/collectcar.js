@@ -50,6 +50,9 @@ module.exports = app => {
       let res;
       try {
         res = yield app.mysql.select('garage');
+        // res = yield app.mysql.select('garage', {
+        //   where: { id: 1 },
+        // });
       } catch (e) {
         this.ctx.logger.error(e);
         return false;

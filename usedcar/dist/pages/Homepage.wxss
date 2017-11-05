@@ -1,4 +1,15 @@
 
+.view {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0px 0px 0px;
+}
+.text-class {
+  width: 60px;
+}
 .background {
   background-color: #F5F5F5;
 }
@@ -9,7 +20,7 @@
 .select {
   font-size: 15px;
   color: grey;
-  margin: 10px 18px 8px 18px;
+  margin: 10px 18px 0px 18px;
 }
 .search {
   width: 23px;
