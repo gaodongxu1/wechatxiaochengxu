@@ -11,7 +11,13 @@ module.exports = app => {
   app.post('/get', 'home.garageselect');
   app.post('/move', 'home.garagedelete');
 
-  app.post('/buildvideoo', 'home.videocreate');
+  app.post('/buildvideo', 'home.videocreate');
   app.post('/getvideo', 'home.videoselect');
   app.post('/upvideo', 'home.videoupdate');
+
+  app.post('/search', 'home.searchselect');
+
+  app.post('/historys', 'home.historyselect');
+  app.post('/historyd', 'home.historydelete');
+  app.post('/historyc', 'home.historycreate');
 };

@@ -40,5 +40,25 @@ module.exports = app => {
       });
       yield app.mysql.query(userSchema.toString());
     }
+    const hasSearch = yield app.mysql.query(knex.schema.hasTable('search').toString());
+    if (hasSearch.length === 0) {
+      const userSchema = knex.schema.createTableIfNotExists('search', function(table) {
+        table.increments();
+        table.string('name').notNullable().defaultTo('');
+        table.string('address').notNullable().defaultTo('');
+        table.string('price').notNullable().defaultTo('');
+        table.charset('utf8');
+      });
+      yield app.mysql.query(userSchema.toString());
+    }
+    const hasHistory = yield app.mysql.query(knex.schema.hasTable('history').toString());
+    if (hasHistory.length === 0) {
+      const userSchema = knex.schema.createTableIfNotExists('history', function(table) {
+        table.increments();
+        table.string('name').notNullable().defaultTo('');
+        table.charset('utf8');
+      });
+      yield app.mysql.query(userSchema.toString());
+    }
   });
 };

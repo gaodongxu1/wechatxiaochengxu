@@ -25,11 +25,24 @@ module.exports = app => {
       this.ctx.body = yield this.service.collectcar.videoupdate(this.ctx.request.body);
     }
     * videoselect() {
-      console.log(this.ctx.request.body)
+      console.log(this.ctx.request.body);
       this.ctx.body = yield this.service.collectcar.videoselect(this.ctx.request.body);
     }
     * videocreate() {
       this.ctx.body = yield this.service.collectcar.videocreate(this.ctx.request.body);
+    }
+    * searchselect() {
+      console.log(this.ctx.request.body);
+      this.ctx.body = yield this.service.collectcar.searchselect(this.ctx.request.body);
+    }
+    * historydelete() {
+      this.ctx.body = yield this.service.collectcar.historydelete(this.ctx.request.body);
+    }
+    * historyselect() {
+      this.ctx.body = yield this.service.collectcar.historyselect(this.ctx.request.body);
+    }
+    * historycreate() {
+      this.ctx.body = yield this.service.collectcar.historycreate(this.ctx.request.body);
     }
   }
   return HomeController;

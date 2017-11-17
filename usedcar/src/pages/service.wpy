@@ -1,8 +1,27 @@
 <style lang='less'>
+.allbacground {
+  background-color: #F5F5F5;
+}
+.headsearch {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: white;
+  margin: 0px 70px 0px 70px;
+}
+.text-class {
+  width: 40px;
+  // height:28px;
+}
+.service {
+  font-size: 15px;
+  color: grey;
+  margin: 10px 18px 0px 18px;
+}
 .experience {
   font-size: 15px;
   color: black;
-  margin: 0px 28px 0px 28px;
+  margin: 0px 30px 0px 30px;
 }
 .head {
   position: fixed;
@@ -28,32 +47,111 @@
   border: 10px solid #F5F5F5;
   margin: 35px 0px 0px 0px;
 }
+.dynamics {
+  width: 200px;
+  height: 90px;
+  margin: 10px 0px 10px 0px;
+}
+.owner {
+  font-size: 15px;
+  color: black;
+  display:flex;
+  flex-direction:row;
+  margin: 0px 0px 0px 8px;
+}
+.commentaries {
+  font-size: 13px;
+  color: grey;
+  display:flex;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 20px 20px 5px; 
+}
+.commentarie {
+  width: 100%;
+  font-size: 13px;
+  color: grey;
+  display:flex;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 0px 0px 10px;
+}
+.tire {
+  width: 100px;
+  height: 80px;
+  margin: 0px 10px 0px 50px;
+}
+.borders {
+  width: 100%;
+  height: 120px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #F5F5F5;
+  background-color: white;  
+}
+.borde {
+  width: 100%;
+  height: 120px;
+  display: flex; 
+  align-items: center;
+  border-bottom: 1px solid #F5F5F5;
+  background-color: white;  
+}
+.describe {
+  font-size: 15px;
+  color: black;
+  display:flex;
+  flex-direction:row;
+  margin: 15px 0px 0px 5px;
+}
+.dynamic {
+  width: 100%-7px;
+  height: 90px;
+  margin: 0px 0px 10px 0px;
+}
 </style>
 <template>
-<view>
+<view class="allbacground" style="height: {{height}}px">
   <view>
     <scroll-view class="head" scroll-x="true" style="white-space:nowrap; display: block">
-      <!-- <text @tap="experience" class="experience">经历</text>
-      <text @tap="experience" class="experience">热点</text>
-      <text @tap="experience" class="experience">保定</text>
-      <text @tap="experience" class="experience">保养</text>
-      <text @tap="experience" class="experience">省油</text>
-      <image @tap="experience" class="search" src="{{search}}"></image> -->
-      <view class="experience">
+      <view class="headsearch">
           <view class="experience" wx:for="{{tab}}" wx:key="index" id="{{index}}" @tap="tab">
-            <text class="text-class" style="color: {{index == service ? 'black' : 'grey'}}; border-botto: 3px solid {{index == homepage ? 'black' : 'white'}}">{{item}}</text>
+            <view class="text-class" style="color: {{index == service ? 'black' : 'grey'}};">{{item}}</view>
           </view>
-    </scroll-view>
-     <view>
+          <view>
       <image class="search" src="{{search}}"></image>
     </view>
+        </view>
+    </scroll-view>
   </view>
   <view class="border">
     <image class="advertising" src="{{advertising}}"></image>
   </view>
-  <view>
-       <textarea bindblur="bindTextAreaBlur" auto-height placeholder="自动变高"></textarea>
-      </view>
+      <view class="borde">
+      <view class="dynamic">
+        <text class="owner">洗车是有讲究的,现在正值梅雨季节,谈谈我的洗车关,欢迎拍砖</text>
+        <view class="commentaries">
+        <text class="commentaries">#经历#</text>
+        <text class="commentaries">204433评论</text>
+        </view>
+        </view>
+        </view>
+        <view class="borders" >
+          <view style="display:flex">
+          <view class="dynamics">
+            <text class="owner">车主的修车经历:再也不想开宝马了</text>
+          </view>
+          <view>
+              <image class="tire" src="{{tire}}"></image>
+          </view>
+        </view>
+        <view class="commentarie">
+        <text style="margin:0px 30px 0px 5px">#经历#</text>
+        <text style="margin:0px 70px 15px 15px">204433评论</text>
+        </view>
+          </view>
+
   </view>
 </template>
 <script>
@@ -61,20 +159,33 @@ import wepy from 'wepy'
 export default class Index extends wepy.page {
   config = {
     navigationBarTitleText: '服务'
-  }
+  };
   data = {
     tab: ['经历', '热点', '保定', '保养', '生活'],
     service: 0,
     search: '../photo/search.png',
-    advertising: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509352596440&di=ba62bcf7fb114799903b8a969cde9b08&imgtype=0&src=http%3A%2F%2Fpic.xcarimg.com%2Fimg%2Fnews_photo%2F2014%2F04%2F23%2FIrlX6OYFaT3696.jpg'
+    width: 0,
+    height: 0,
+    advertising: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509352596440&di=ba62bcf7fb114799903b8a969cde9b08&imgtype=0&src=http%3A%2F%2Fpic.xcarimg.com%2Fimg%2Fnews_photo%2F2014%2F04%2F23%2FIrlX6OYFaT3696.jpg',
+    tire: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510047764159&di=e862b7d7e21f71eaff36f5419e7658e3&imgtype=0&src=http%3A%2F%2Fpic.qp110.com%2Fnews%2Fpic_tupian%2F2016%2F06%2F20160608100100237.jpg'
   }
   methods = {
     tab (e) {
       let self = this
       self.service = e.currentTarget.id
+      var where = e.currentTarget.id
+      console.log(self.service, 'aaaaa')
+      console.log(self.tab[where], 'bbbbbb')
     }
   }
   onLoad() {
+    let self = this
+    wepy.getSystemInfo({
+      success(res) {
+        self.height = res.windowHeight
+        self.width = res.windowWidth
+      }
+    })
   }
 }
 </script>

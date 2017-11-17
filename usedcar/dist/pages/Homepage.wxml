@@ -58,7 +58,7 @@
   </scroll-view>
   <view class="recommend">
     <text style="font-size:15px;color:black">专业推荐</text>
-    <text style="font-size:15px;color:grey">RECOMMEND</text>
+    <text style="font-size:13px;color:grey">RECOMMEND</text>
     </view>
     <view style="display:flex;justify-content: center;">
     <view bindtap="driver">
@@ -76,7 +76,7 @@
       </view>
       <view class="recommend">
     <text style="font-size:15px;color:black">精心挑选</text>
-    <text style="font-size:15px;color:grey">SELECT</text>
+    <text style="font-size:13px;color:grey">SELECT</text>
     </view>
     <view>
     <block wx:for="{{Array}}" wx:key="index">
@@ -128,10 +128,10 @@
           </view>
         <view class="headsearch">
           <view class="select" wx:for="{{tab}}" wx:key="index" id="{{index}}" bindtap="tab">
-            <text class="text-class" style="color: {{index == homepage ? 'black' : 'grey'}}; border-bottom: 3px solid {{index == homepage ? 'black' : 'white'}}">{{item}}</text>
+            <view class="text-class" style="color: {{index == homepage ? 'black' : 'grey'}}; border-bottom: 3px solid {{index == homepage ? 'black' : 'white'}}">{{item}}</view>
           </view>
           <view>
-      <image class="search" src="{{search}}"/>
+      <image bindtap="search" class="search" src="{{search}}"/>
     </view>
         </view>
 </view>

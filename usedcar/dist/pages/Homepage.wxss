@@ -9,6 +9,7 @@
 }
 .text-class {
   width: 60px;
+  height:28px;
 }
 .background {
   background-color: #F5F5F5;
@@ -60,7 +61,7 @@
   width: 37px;
   height: 37px;
   border-radius: 50%;
-  background-color: grey;
+  background-color: white;
 }
 .toyota {
   font-size: 13px;
@@ -82,8 +83,8 @@
   margin: 10px 0px 0px 0px;
 }
 .testdrive {
-  width: 49px;
-  height: 26px;
+  width: 55px;
+  height: 20px;
   background-color: black;
   display: flex;
   justify-content: center;

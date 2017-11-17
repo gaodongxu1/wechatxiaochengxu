@@ -1,49 +1,42 @@
 
-<view>
+<view class="allbacground" style="height: {{height}}px">
   <view>
     <scroll-view class="head" scroll-x="true" style="white-space:nowrap; display: block">
-      <!-- <text bindtap="experience" class="experience">经历</text>
-      <text bindtap="experience" class="experience">热点</text>
-      <text bindtap="experience" class="experience">保定</text>
-      <text bindtap="experience" class="experience">保养</text>
-      <text bindtap="experience" class="experience">省油</text>
-      <image bindtap="experience" class="search" src="{{search}}"></image> -->
-      <view class="experience">
+      <view class="headsearch">
           <view class="experience"  wx:for="{{tab}}" wx:key="index" id="{{index}}" bindtap="tab">
-            <text class="text-class" style="color: {{index == service ? 'black' : 'grey'}}; border-botto: 3px solid {{index == homepage ? 'black' : 'white'}}">{{item}}</text>
+            <view class="text-class" style="color: {{index == service ? 'black' : 'grey'}};">{{item}}</view>
           </view>
-    
-     <view>
+          <view>
       <image class="search" src="{{search}}"/>
     </view>
+        </view>
+    </scroll-view>
   </view>
   <view class="border">
     <image class="advertising" src="{{advertising}}"/>
   </view>
-  <view>
-       <textarea bindblur="bindTextAreaBlur" auto-height placeholder="自动变高"/>
-      </view>
-  
+      <view class="borde">
+      <view class="dynamic">
+        <text class="owner">洗车是有讲究的,现在正值梅雨季节,谈谈我的洗车关,欢迎拍砖</text>
+        <view class="commentaries">
+        <text class="commentaries">#经历#</text>
+        <text class="commentaries">204433评论</text>
+        </view>
+        </view>
+        </view>
+        <view class="borders">
+          <view style="display:flex">
+          <view class="dynamics">
+            <text class="owner">车主的修车经历:再也不想开宝马了</text>
+          </view>
+          <view>
+              <image class="tire" src="{{tire}}"/>
+          </view>
+        </view>
+        <view class="commentarie">
+        <text style="margin:0px 30px 0px 5px">#经历#</text>
+        <text style="margin:0px 70px 15px 15px">204433评论</text>
+        </view>
+          </view>
 
-<script>
-import wepy from 'wepy'
-export default class Index extends wepy.page {
-  config = {
-    navigationBarTitleText: '服务'
-  }
-  data = {
-    tab: ['经历', '热点', '保定', '保养', '生活'],
-    service: 0,
-    search: '../photo/search.png',
-    advertising: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509352596440&di=ba62bcf7fb114799903b8a969cde9b08&imgtype=0&src=http%3A%2F%2Fpic.xcarimg.com%2Fimg%2Fnews_photo%2F2014%2F04%2F23%2FIrlX6OYFaT3696.jpg'
-  }
-  methods = {
-    tab (e) {
-      let self = this
-      self.service = e.currentTarget.id
-    }
-  }
-  onLoad() {
-  }
-}
-</script></scroll-view></view></view>
+  </view>
