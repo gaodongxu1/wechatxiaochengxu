@@ -188,24 +188,6 @@
   .pink-bg {
     background-color: #ff629a;
   }
-  .picker-btns {
-    height: 120rpx;
-    line-height: 120rpx;
-    border-bottom: 1rpx solid #ff7ca0;
-  }
-
-  .picker-confirm {
-    margin-right: 50rpx;
-  }
-
-  .picker-cancel {
-    margin-left: 50rpx;
-  }
-
-  .picker-view {
-    color: #ff7ca0;
-    text-align: center;
-  }
   
   .holiday-position {
     display: flex;
