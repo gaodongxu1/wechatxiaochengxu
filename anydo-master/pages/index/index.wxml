@@ -1,0 +1,127 @@
+<!--index.wxml-->
+<view class="date-list">
+  <view wx:for="{{tasks}}" wx:for-item="task" wx:key="{{index}}">
+    <view class="as-flex-box date-list-item">
+      <view class='flex-1' bindtap='toggleDate' data-type='{{task.type}}'>{{task.label}}</view>
+      <image wx-if="{{task.type != 3}}" style="width: 30px; height: 30px" 
+        src="../../static/images/plus.png"
+        bindtap="addHandle"
+        data-type="{{task.type}}"
+        ></image>
+    </view>
+    <view class='task-list' wx:if='{{task.detailFlag}}'>
+      <view wx:for="{{task.task}}" 
+      wx:for-item="item"
+      wx:key="{{index}}"
+      class='task-list-item' 
+      style='{{item.detailFlag == true ? "border:none" : "border-bottom:1px solid #f0f0f0"}}'
+      >
+        <view bindtap='toggleTask' data-index='{{index}}' data-type='{{task.type}}'>
+          <view class='text-2'>{{item.content}}</view>
+          <view class='text-3'>
+            <view wx:if="{{item.detailFlag}}">
+              <text class='font-weight'>{{item.type != '' ? item.type : '暂无分类'}}</text> | <text>{{item.createDatetimeStr}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='as-flex-box' style="margin-top:0.5rem" wx:if="{{item.detailFlag}}">
+          <view class='flex-1 control-icon'>
+            <image src='../../static/images/edit.png' bindtap='editTaskHandle' data-taskcontent='{{item.content}}' data-taskid='{{item.taskId}}'></image>
+          </view>
+          <view class='flex-1 control-icon'>
+            <image src='../../static/images/type.png' bindtap='chooseTypeHandle' data-taskid="{{item.taskId}}"></image>
+          </view>
+          <view class='flex-1 control-icon'>
+            <image src='../../static/images/time.png' bindtap='chooseDateHandle' data-taskid="{{item.taskId}}" data-plandatetime="{{item.planDatetime}}"></image>
+          </view>
+          <view class='flex-1 control-icon'>
+            <image src='../../static/images/task-selected.png' bindtap='doneTaskHandle' data-taskid="{{item.taskId}}"></image>
+          </view>
+          <view class='flex-1 control-icon'>
+            <image src='../../static/images/cancel.png' bindtap='removeTaskHandle' data-taskid="{{item.taskId}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='task-list' wx:if='{{task.detailFlag}}'>
+      <view wx:for="{{task.cancelTask}}" 
+      wx:for-item="item"
+      wx:key="{{index}}" 
+      class='task-list-item' style='position:relative'>
+        <view data-index='{{index}}' data-type='{{type}}'>
+          <view class='text-2 cancelTask' style='width: 15rem'>{{item.content}}</view>
+          <view class='text-3'>
+            <view wx:if="{{item.detailFlag}}">
+              <text class='font-weight'>{{item.type != '' ? item.type : '暂无分类'}}</text> | <text>{{item.createDatetimeStr}}</text>
+            </view>
+          </view>
+        </view>
+        <image class='deleteBtn' src='../../static/images/delete.png' bindtap='deleteTaskHandle' data-taskid="{{item.taskId}}"></image>
+        <image class='revertBtn' src='../../static/images/revent.png' bindtap='revertTaskHandle' data-taskid="{{item.taskId}}"></image>
+      </view>
+    </view>
+    <view class='task-list' wx:if='{{task.detailFlag && task.task.length === 0 && task.cancelTask.length === 0}}'>
+      <view class='task-list-item'>
+        <view class='text-2'>暂无任务</view>
+        <view class='text-3'></view>
+      </view>
+    </view>    
+  </view>
+  <!--添加任务-->
+  <view class='plus' bindtap="showModalHandle">+</view>
+  <!--添加任务弹出层-->
+  <view class='task-content' wx:if="{{modalObj.modalFlag}}">
+    <view class='as-flex-box content-header'>
+      <view class='content-icon' bindtap="hideModalHandle">
+        <image src="../../static/images/close.png"></image>
+      </view>      
+      <view class='flex-1'>
+      <input placeholder="我想..." value="{{modalObj.taskContent}}" class="things" bindinput="taskChange" focus="{{modalObj.inputFocus}}" ></input>
+      </view>      
+      <view class='content-icon'>
+        <image src="../../static/images/voice.png" wx-if="{{modalObj.taskContent===''}}" ></image>
+        <image src="../../static/images/checked.png" wx-if="{{modalObj.taskContent!==''}}" data-a="{{modalObj.taskContent}}" bindtap="saveTaskHandle"></image>
+      </view> 
+    </view>
+    <view class='content-body' wx:if="{{modalObj.taskContent ===''}}">
+      <view class='as-flex-box tag' bindtap='addTag' data-tag='呼叫'>
+        <view class='content-icon'>
+          <image src="../../static/images/call.png"></image>
+        </view>
+        <view class='flex-1 text-1'>呼叫</view>
+      </view>
+      <view class='as-flex-box tag' bindtap='addTag' data-tag='阅读'>
+        <view class='content-icon'>
+          <image src="../../static/images/study.png"></image>
+        </view>
+        <view class='flex-1 text-1'>阅读</view>
+      </view>
+      <view class='as-flex-box tag' bindtap='addTag' data-tag='支付'>
+        <view class='content-icon'>
+          <image src="../../static/images/pay.png"></image>
+        </view>
+        <view class='flex-1 text-1'>支付</view>
+      </view>
+      <view class='as-flex-box tag' bindtap='addTag' data-tag='电子邮件'>
+        <view class='content-icon'>
+          <image src="../../static/images/task-selected.png"></image>
+        </view>
+        <view class='flex-1 text-1'>电子邮件</view>
+      </view>
+      <view class='as-flex-box tag' bindtap='addTag' data-tag='学习'>
+        <view class='content-icon'>
+          <image src="../../static/images/study.png"></image>
+        </view>
+        <view class='flex-1 text-1'>学习</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 任务详情模板  -->
+<template name="taskTemplate">
+  <view>
+    <text> {{index}}: {{msg}} </text>
+    <text> Time: {{time}} </text>
+  </view>
+</template>

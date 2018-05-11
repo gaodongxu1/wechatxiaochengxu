@@ -1,0 +1,26 @@
+<block wx:if="{{dataLoadErrorFlag}}">
+<image class="no-data" src="../../static/images/nodata.png"></image>
+</block>
+<block wx:else>
+<scroll-view scroll-y scroll-into-view="dateItem{{curItem}}">
+  <view id="dateItem{{index}}" class="date-item {{item.dateType < 0?'pass-times':''}}" wx:for="{{taskList}}"
+    wx:key="{{index}}">
+    <view class="header as-flex-box">
+    <view class="flex-1"><view class="line"></view></view>
+    <view class="date {{item.dateType === 0 ?'cur-date':''}}"><text>{{item.planDatetimeStr}}</text></view>
+    <view class="flex-1 line"><view class="line"></view></view>
+    </view>
+    <view class="content">
+      <view class="task-item" wx:for="{{item.tasks}}" wx:for-item="task" wx:key="{{index}}"
+        bindtap="doneTaskHandle" data-taskid="{{task.taskId}}">
+        <image class="icon" src="../../static/images/cricle.png" wx:if="{{task.status == '已完成'}}"></image>
+        <image class="icon" src="../../static/images/square.png" wx:if="{{task.status == '待完成'}}"></image>
+        <view class="task-section">
+          <view class="task-content">{{task.content}}</view>
+          <view class="divide" wx:if="{{index<item.length-1}}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+</block>

@@ -1,0 +1,56 @@
+/**calendar.wxss**/
+scroll-view{
+  height: 100vh;
+}
+.date-item{
+}
+.date{
+  width: 130px;
+  text-align: center;
+  font-weight: bold;
+}
+.header{
+  font-size: 12px;
+  margin: 1rem 0;
+}
+.line{
+  height: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.divide{
+  height: 1px;
+  background-color: #e0e0e0;
+}
+.task-section{
+  padding: 0 10px 0 40px;
+  position: relative;
+}
+.task-content{
+  padding: 10px 0;
+  word-break: break-all;
+}
+.task-item{
+  position: relative;
+}
+.icon{
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 13px;
+  left: 16px;
+}
+.pass-times{
+  color: #adadad !important;
+}
+.pass-times .date{
+  color: #bebebe !important;
+}
+.cur-date{
+  color: #2AA0C6 !important;
+}
+.no-data{
+  display: block;
+  width: 10rem;
+  height: 6.6rem;
+  margin: 10rem auto 0;
+}

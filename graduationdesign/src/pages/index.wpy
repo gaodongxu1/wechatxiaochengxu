@@ -1,0 +1,63 @@
+<style lang='less'>
+</style>
+<template>
+<view>
+  <picker bindchange="choosedActive" value="{{index}}" range="{{Active}}">
+    <view class="picker">
+      当前选择：{{Active[index]}}
+    </view>
+  </picker>
+  <view class="section">
+  <textarea bindblur="bindTextAreaBlur" auto-height placeholder="自动变高" />
+</view>
+<view class="section">
+  <textarea placeholder="placeholder颜色是红色的" placeholder-style="color:red;"  />
+</view>
+<view class="section">
+  <textarea placeholder="这个只有在按钮点击的时候才聚焦" focus="{{focus}}" />
+  <view class="btn-area">
+    <button bindtap="bindButtonTap">使得输入框获取焦点</button>
+  </view>
+</view>
+<view class="section">
+  <form bindsubmit="bindFormSubmit">
+    <textarea  bindblur="bindTextAreaBlur" placeholder="form 中的 textarea" name="textarea"/>
+    <button form-type="submit"> 提交 </button>
+  </form>
+</view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '家务提醒'
+  };
+  data = {
+    Active: ['日食谱', '购物清单', '家务', '宝宝生活', '纪念日'],
+    // height: 100,
+    focus: false
+  }
+  methods = {
+    choosedActive(e) {
+      console.log('picker发送选择改变，携带值为', e.detail.value)
+      this.setData({
+        index: e.detail.value
+      })
+    },
+    bindButtonTap: function() {
+      this.setData({
+        focus: true
+      })
+    },
+    bindTextAreaBlur: function(e) {
+      console.log(e.detail.value)
+    },
+    bindFormSubmit: function(e) {
+      console.log(e.detail.value.textarea)
+    }
+  }
+  onLoad() {
+  }
+}
+</script>
