@@ -31,20 +31,20 @@
 }
 </style>
 <template>
-<view class="background" style="height: {{height}}px">
-  <block wx:for="{{Array}}" wx:key="index">
-  <view class="vidback">
-  <text class="slogan">{{item.slogan}}</text>
-  <view class="video">
-      <video @tap="play" class="videos" id="{{index}}" src="{{item.videoaddress}}"></video>
+  <view class="background" style="height: {{height}}px">
+      <block wx:for="{{Array}}" wx:key="index">
+        <view class="vidback">
+          <text class="slogan">{{item.slogan}}</text>
+            <view class="video">
+                <video @tap="play" class="videos" id="{{index}}" src="{{item.videoaddress}}"></video>
+            </view>
+              <view class="position">
+                <text>{{item.creat}}</text>
+                <text>{{item.videoplay}}次播放</text>
+              </view>
+        </view>
+      </block>
     </view>
-    <view class="position">
-    <text>{{item.creat}}</text>
-    <text>{{item.videoplay}}次播放</text>
-    </view>
-  </view>
-  </block>
-  </view>
 </template>
 <script>
 import wepy from 'wepy'
@@ -81,7 +81,7 @@ export default class Index extends wepy.page {
           self.setData({
             Array: res.data
           })
-          console.log(res.data, 'res.data')
+          // console.log(res.data, 'res.data')
         }
       })
     }
@@ -102,7 +102,7 @@ export default class Index extends wepy.page {
         self.setData({
           Array: res.data
         })
-        console.log(res.data, 'res.data')
+        // console.log(res.data, 'res.data')
       }
     })
   }

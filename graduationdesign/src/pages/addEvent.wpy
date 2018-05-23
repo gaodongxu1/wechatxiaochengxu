@@ -90,60 +90,64 @@
 </style>
 
 <template>
-<view class="allbacground" style="height: {{height}}px">
-  <view class="individual-layout">
-      <image class="individual" src="{{head}}"></image>
-      <text>{{name}}</text>
-  </view>
+    <view class="allbacground" style="height: {{height}}px">
+      <view class="individual-layout">
+          <image class="individual" src="{{head}}"></image>
+          <text>{{name}}</text>
+      </view>
 
-    <view class="pink-color">
-        <view class="fs28 box box-lr time-event">
-            <view  @tap="chooseYearAndMonthDate" class=" box box-lr curtime">时间:</view>
-            <view  class="date-area box box-lr time-event" style="margin: 0px 0px 0px 10px;color:black;">{{curYear || "--"}} 年 {{curMonth || "--"}} 月 {{curDate || "--"}} 日</view>
-        </view>
-    <view style="width:100%;height:14px;background-color:#F5F5F5;margin:10px 0px 0px 0px;"></view>
+        <view class="pink-color">
+            <view class="fs28 box box-lr time-event">
+                <view  @tap="chooseYearAndMonthDate" class=" box box-lr curtime">时间:</view>
+                <view  class="date-area box box-lr time-event" style="margin: 0px 0px 0px 10px;color:black;">{{curYear || "--"}} 年 {{curMonth || "--"}} 月 {{curDate || "--"}} 日</view>
+            </view>
+      <view style="width:100%;height:14px;background-color:#F5F5F5;margin:10px 0px 0px 0px;"></view>
 
-      <view class="fs28 box box-lr time-event">
-        <picker bindchange="choosedActive" value="{{index}}" range="{{Active}}">
-          <view style= "display:flex; align-items: center;">
-            <view class=" box box-lr curtime date-area time-event">事件:</view>
-            <view style="margin: 4px 0px 0px 12px;color:black;">{{Active[index]}}</view>
+          <view class="fs28 box box-lr time-event">
+            <picker bindchange="choosedActive" value="{{index}}" range="{{Active}}">
+              <view style= "display:flex; align-items: center;">
+                <view class=" box box-lr curtime date-area time-event">事件:</view>
+                <view style="margin: 4px 0px 0px 12px;color:black;">{{Active[index]}}</view>
+              </view>
+            </picker>
           </view>
-        </picker>
-      </view>
-    <view style="width:100%;height:14px;background-color:#F5F5F5;margin:10px 0px 0px 0px;"></view>
+        <view style="width:100%;height:14px;background-color:#F5F5F5;margin:10px 0px 0px 0px;"></view>
 
-      <view class="fs28 box box-lr time-event">
-        <view class=" box box-lr curtime time-event">日程:</view>
-          <view>
-            <form>
-             <textarea style="color: black;" placeholder="具体事件" name="textarea" bindinput="onInput" />
-            </form>
-           </view>
-      </view>
-    <view style="width:100%;height:14px;background-color:#F5F5F5;margin:10px 0px 0px 0px;"></view>
+          <view class="fs28 box box-lr time-event">
+            <view class=" box box-lr curtime time-event">日程:</view>
+              <view>
+                <form>
+                <textarea style="color: black;" placeholder="具体事件" name="textarea" bindinput="onInput" />
+                </form>
+              </view>
+          </view>
 
-    <view @tap="submit" class="date-area" style="color:grey;font-size: 32rpx;">提交</view>
-    </view>
-      
-    <view wx:if="{{showPicker === true}}" class="box box-tb">
-      <view class="picker-btns box box-lr box-pack-between ">
-        <view class="picker-btn picker-cancel" data-type="cancel" @tap="tapPickerBtn">取消</view>
-        <view class="picker-btn picker-confirm" data-type="confirm" @tap="tapPickerBtn">确定</view>
+          <view style="width:100%;height:14px;background-color:#F5F5F5;margin:10px 0px 0px 0px;"></view>
+
+          <view @tap="submit" class="date-area" style="color:grey;font-size: 32rpx;">提交</view>
+        </view>
+          
+      <view wx:if="{{showPicker === true}}" class="box box-tb">
+          <view class="picker-btns box box-lr box-pack-between ">
+            <view class="picker-btn picker-cancel" data-type="cancel" @tap="tapPickerBtn">取消</view>
+            <view class="picker-btn picker-confirm" data-type="confirm" @tap="tapPickerBtn">确定</view>
+          </view>
+
+          <picker-view class="flex" indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{pickerValue}}" bindchange="pickerChange">
+              <picker-view-column>
+                <view class="picker-view" wx:for="{{pickerYear}}" wx:key="*this" style="line-height: 50px">{{item}}年</view>
+              </picker-view-column>
+
+                <picker-view-column>
+                  <view class="picker-view" wx:for="{{pickerMonth}}" wx:key="*this" style="line-height: 50px">{{item}}月</view>
+                </picker-view-column>
+
+                  <picker-view-column>
+                    <view class="picker-view" wx:for="{{pickerDate}}" wx:key="*this" style="line-height: 50px">{{item}}日</view>
+                  </picker-view-column>
+          </picker-view>
       </view>
-      <picker-view class="flex" indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{pickerValue}}" bindchange="pickerChange">
-        <picker-view-column>
-          <view class="picker-view" wx:for="{{pickerYear}}" wx:key="*this" style="line-height: 50px">{{item}}年</view>
-        </picker-view-column>
-        <picker-view-column>
-          <view class="picker-view" wx:for="{{pickerMonth}}" wx:key="*this" style="line-height: 50px">{{item}}月</view>
-        </picker-view-column>
-        <picker-view-column>
-          <view class="picker-view" wx:for="{{pickerDate}}" wx:key="*this" style="line-height: 50px">{{item}}日</view>
-        </picker-view-column>
-      </picker-view>
-    </view>
-  </view>
+      </view>
 </template>
 
 <script>

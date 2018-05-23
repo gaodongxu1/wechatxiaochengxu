@@ -188,7 +188,7 @@
   .pink-bg {
     background-color: #ff629a;
   }
-  
+
   .holiday-position {
     display: flex;
     justify-content: space-between;
@@ -205,34 +205,36 @@
           <view class="prev box box-rl" @tap="handleCalendar" data-handle="prev">
             <view class="prev-handle box box-lr box-align-center box-pack-center">《</view>
           </view>
-          <view  class="date-area box box-lr box-align-center box-pack-center">{{curYear || "--"}} 年 {{curMonth || "--"}} 月 {{curDate || "--"}} 日</view>
-          <view class="next box box-lr" @tap="handleCalendar" data-handle="next">
-            <view class="next-handle box box-lr box-align-center box-pack-center">》</view>
-          </view>
+            <view  class="date-area box box-lr box-align-center box-pack-center">{{curYear || "--"}} 年 {{curMonth || "--"}} 月 {{curDate || "--"}} 日</view>
+              <view class="next box box-lr" @tap="handleCalendar" data-handle="next">
+                <view class="next-handle box box-lr box-align-center box-pack-center">》</view>
+              </view>
         </view>
-        <view class="weeks box box-lr box-pack-center box-align-center">
-          <view class="flex week fs28" wx:for="{{weeksCh}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
-        </view>
-        <view class="days box box-lr box-wrap">
-          <view wx:if="{{hasEmptyGrid}}" class="grid white-color box box-align-center box-pack-center" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+
+          <view class="weeks box box-lr box-pack-center box-align-center">
+            <view class="flex week fs28" wx:for="{{weeksCh}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
           </view>
-          <view class="grid white-color box box-align-center box-pack-center" wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}">
-            <view class="day {{item.choosed ? 'border-radius pink-bg' : ''}} box box-align-center box-pack-center">{{item.day}}</view>
-          </view>
-        </view>
+            <view class="days box box-lr box-wrap">
+                <view wx:if="{{hasEmptyGrid}}" class="grid white-color box box-align-center box-pack-center" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+                </view>
+                  <view class="grid white-color box box-align-center box-pack-center" wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}">
+                    <view class="day {{item.choosed ? 'border-radius pink-bg' : ''}} box box-align-center box-pack-center">{{item.day}}</view>
+                  </view>
+            </view>
       </view>
     </view>
 
     <block>
      <view>
       <view style="margin: 20px 15px 20px 15px;"><text style="font-size:16px;color:red;">{{Array[0].yearmonth}}</text></view>
+      
        <view style="background-color: #fff;">
          <block wx:for="{{Array}}" wx:key="index">
-        <view class="holiday-position">
-          <view><text style="font-size:14px;">{{item.day}}</text></view>
-          <view><text style="font-size:14px;">{{item.week}}</text></view>
-          <view><text style="font-size:14px;">{{item.festival}}</text></view>
-        </view>
+            <view class="holiday-position">
+                <view><text style="font-size:14px;">{{item.day}}</text></view>
+                <view><text style="font-size:14px;">{{item.week}}</text></view>
+                <view><text style="font-size:14px;">{{item.festival}}</text></view>
+            </view>
          </block>
        </view>
      </view>
