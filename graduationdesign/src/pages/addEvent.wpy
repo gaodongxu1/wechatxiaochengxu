@@ -62,9 +62,10 @@
   }
   
   .date-area {
-    height: 80rpx;
+    height: 70rpx;
     text-align: center;
-    margin: 0px 0px 0px 12px;
+    align-items: center;
+    margin: 8px 0px 0px 12px;
   }
 
   
@@ -98,7 +99,7 @@
     <view class="pink-color">
         <view class="fs28 box box-lr time-event">
             <view  @tap="chooseYearAndMonthDate" class=" box box-lr curtime">时间:</view>
-            <view  class="date-area box box-lr time-event" style="color:black;">{{curYear || "--"}} 年 {{curMonth || "--"}} 月 {{curDate || "--"}} 日</view>
+            <view  class="date-area box box-lr time-event" style="margin: 0px 0px 0px 10px;color:black;">{{curYear || "--"}} 年 {{curMonth || "--"}} 月 {{curDate || "--"}} 日</view>
         </view>
     <view style="width:100%;height:14px;background-color:#F5F5F5;margin:10px 0px 0px 0px;"></view>
 
@@ -106,7 +107,7 @@
         <picker bindchange="choosedActive" value="{{index}}" range="{{Active}}">
           <view style= "display:flex; align-items: center;">
             <view class=" box box-lr curtime date-area time-event">事件:</view>
-            <view style="margin: 0px 0px 0px 12px;color:black;">{{Active[index]}}</view>
+            <view style="margin: 4px 0px 0px 12px;color:black;">{{Active[index]}}</view>
           </view>
         </picker>
       </view>
@@ -167,7 +168,7 @@
       pickerMonth: null,
       pickerDate: null,
       pickerEvent: null,
-      Active: ['', '日食谱', '购物清单', '家务', '宝宝生活', '纪念日'],
+      Active: ['日食谱', '购物清单', '家务', '宝宝生活', '纪念日', '其他'],
       index: 0,
       width: 0,
       height: 0,
@@ -258,13 +259,13 @@
       submit(e) {
         let self = this
         const now = `${self.curYear}年${self.curMonth}月${self.curDate}日`
-        console.log(now, self.Active[self.index], self.textarea)
+        // console.log(now, self.Active[self.index], self.textarea)
         wepy.request({
           url: 'http://127.0.0.1:7001/build',
           method: 'POST',
           data: {
             yearmonthday: now,
-            event: self.Active[self.index],
+            eventname: self.Active[self.index],
             arrange: self.textarea
           }
         })

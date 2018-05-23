@@ -19,7 +19,8 @@ export default class extends wepy.app {
       // 'pages/index',
       'pages/homepage',
       'pages/eventlist',
-      'pages/addEvent'
+      'pages/addEvent',
+      'pages/message'
     ],
     window: {
       backgroundTextStyle: 'light',

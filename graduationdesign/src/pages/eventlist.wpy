@@ -28,12 +28,6 @@
   width: 90%;
   background-color: white;
 }
-.search {
-  position: fixed;
-  right: 10px;
-  width: 23px;
-  height: 23px;
-}
 .advertising {
   width: 100%;
   height: 100%;
@@ -95,38 +89,61 @@
     text-align: center;
     margin: 0px 0px 0px 12px;
   }
+.delete {
+    display: flex;
+    flex-direction: column;
+  }
+  
 </style>
 <template>
 <view class="allbacground" style="height: {{height}}px">
+
   <view>
     <scroll-view class="head" scroll-x="true" style="white-space:nowrap; display: block">
       <view class="tab-directory">
         <view class="list" wx:for="{{tab}}" wx:key="index" id="{{index}}" @tap="tab">
-          <view class="tab-class" style="color: {{index == event ? '#2874fe' : '#999999'}};">{{item}}</view>
+          <view class="tab-class" style="color: {{index == eventid ? '#2874fe' : '#999999'}};">{{item}}</view>
         </view>
       </view>
     </scroll-view>
   </view>
+
   <view class="border">
-    <image class="advertising" src="{{advertising}}"></image>
+    <image @tap="message" class="advertising" src="{{advertising}}"></image>
   </view>
 
  <view style="width:100%;height:1px;background-color:#F5F5F5;margin:5px 0px 0px 0px;"></view>
  
-  <view class="black-color">
-        <view class="fs28 box box-lr time-event">
-            <view  @tap="chooseYearAndMonthDate" class=" box box-lr curtime">时间:</view>
-            <view  class="date-area box box-lr time-event" style="color:black;">2018年5月11日</view>
-        </view>
+  <block wx:for="{{event}}" wx:key="index">
+   <view  class="black-color">
+    <view style="display:flex;justify-content: space-between;">
 
-        <view class="fs28 box box-lr time-event">
+      <view class="fs28 box box-lr time-event">
           <view style= "display:flex; align-items: center;">
-            <view class=" box box-lr curtime date-area time-event">事件:</view>
-            <view style="margin: 0px 0px 0px 12px;color:black;">日食谱</view>
+            <view class=" box box-lr curtime date-area time-event" style="color: {{now == item.yearmonthday ? '#ff629a' : '#999999'}};">事件:</view>
+            <view style = "margin: 0px 0px 0px 12px; color: {{now == item.yearmonthday ? '#ff629a' : '#999999'}};">{{item.eventname}}</view>
           </view>
       </view>
-  </view>
-  </view>
+      
+        <view class="fs28 box box-lr time-event" style="margin: 0px 6px 0px 0px;">
+            <view class=" box box-lr curtime" style = "color: {{now == item.yearmonthday ? '#ff629a' : '#999999'}};">时间:</view>
+            <view  class="date-area box box-lr time-event" style = "color: {{now == item.yearmonthday ? '#ff629a' : '#999999'}};">{{item.yearmonthday}}</view>
+        </view>
+    </view>
+
+      <view class="fs28 box box-lr time-event">
+        <!-- <view class=" box box-lr curtime time-event" style = "color: {{now == item.yearmonthday ? '#ff629a' : '#999999'}};">日程</view> -->
+          <view style="margin: 0px 4px 0px 12px;">
+             <view style = "color: {{now == item.yearmonthday ? '#ff629a' : '#999999'}};">{{item.arrange}}</view>
+          </view>
+      </view>
+   </view>
+
+     <view class="delete" > 
+             <image @tap="delete" id="{{index}}" style="width:18px;height:18px;margin:2px 4px 4px 340px;" src="{{delete}}"></image>
+     </view>
+ </block>
+</view>
 </template>
 <script>
 import wepy from 'wepy'
@@ -136,22 +153,65 @@ export default class Index extends wepy.page {
   };
   data = {
     tab: ['日食谱', '购物清单', '家务', '宝宝生活', '纪念日'],
-    event: 0,
+    eventid: 0,
     curPage: 0,
     search: '../photo/search.png',
+    delete: '../photo/delete.png',
     width: 0,
     height: 0,
-    advertising: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509352596440&di=ba62bcf7fb114799903b8a969cde9b08&imgtype=0&src=http%3A%2F%2Fpic.xcarimg.com%2Fimg%2Fnews_photo%2F2014%2F04%2F23%2FIrlX6OYFaT3696.jpg',
-    list: []
+    advertising: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526986817225&di=bd8e29a997f6c9fddf28dd112cef3ac8&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3Dc40005c577d98d1062d904714847dd62%2Fe1fe9925bc315c60de75f8d686b1cb1349547723.jpg',
+    list: [],
+    now: ''
   }
   methods = {
     tab (e) {
       let self = this
-      self.event = e.currentTarget.id
+      self.eventid = e.currentTarget.id
       var where = e.currentTarget.id
-      console.log(self.event, 'aaaaa')
-      console.log(self.tab[where], 'bbbbbb')
+      // console.log(self.event, 'aaaaa')
+      // console.log(self.tab[where], 'bbbbbb')
       self.list = [self.event, self.event, self.event, self.event, self.event]
+      wepy.request({
+        url: 'http://127.0.0.1:7001/get',
+        method: 'POST',
+        data: {
+          eventname: self.tab[where]
+        },
+        success: function(res) {
+          self.event = res.data
+          self.setData({
+            event: res.data
+          })
+        }
+      })
+    },
+
+    delete(e) {
+      let self = this
+      const index = e.currentTarget.id
+      wepy.request({
+        url: 'http://127.0.0.1:7001/delete',
+        method: 'POST',
+        data: {
+          id: self.event[index].id
+        }
+      })
+      wepy.request({
+        url: 'http://127.0.0.1:7001/get',
+        method: 'POST',
+        success: function(res) {
+          self.event = res.data
+          self.setData({
+            event: res.data
+          })
+          // console.log(res.data, 'res.data')
+        }
+      })
+    },
+    message() {
+      wepy.navigateTo({
+        url: './message'
+      })
     }
   }
   onLoad() {
@@ -162,6 +222,25 @@ export default class Index extends wepy.page {
         self.width = res.windowWidth
       }
     })
+    wepy.request({
+      url: 'http://127.0.0.1:7001/get',
+      method: 'POST',
+      data: {
+        eventname: '日食谱'
+      },
+      success: function(res) {
+        self.event = res.data
+        self.setData({
+          event: res.data
+        })
+        // console.log(res.data, 'res.data')
+      }
+    })
+    var myDate = new Date()
+    const year = myDate.getFullYear()
+    const month = myDate.getMonth() + 1
+    const date = myDate.getDate()
+    self.now = `${year}年${month}月${date}日`
   }
 }
 </script>
